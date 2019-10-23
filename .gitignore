@@ -1,0 +1,13 @@
+*.jpg
+*.pth
+*.jpeg
+*.tif
+._*
+*.ipynb
+checkpoints/
+__pycache__/
+__pycache__
+Images
+.ipynb_checkpoints
+models
+train_log
