@@ -76,6 +76,10 @@ class Trainer(object):
         tbar = tqdm(self.train_loader)
         num_img_tr = len(self.train_loader)
         for i, sample in enumerate(tbar):
+            iter = epoch * len(self.train_loader) + i
+            self.vis.line(X=torch.tensor([iter]), Y=torch.tensor([self.optimizer.param_groups[0]['lr']]),
+                          win='lr', opts=dict(title='lr', xlabel='iter', ylabel='lr'),
+                          update='append' if iter>0 else None)
             image, target = sample['image'], sample['label']
             if self.args.cuda:
                 image, target = image.cuda(), target.cuda()
@@ -91,8 +95,8 @@ class Trainer(object):
         print('[Epoch: %d, numImages: %5d]' % (epoch, i * self.config.batch_size + image.data.shape[0]))
         print('Loss: %.3f' % train_loss)
 
-        self.vis.line(X=torch.tensor([epoch]), Y=torch.tensor([train_loss]), win='train_loss',
-                      opts=dict(title='train loss', xlabel='epoch', ylabel='train loss'),
+        self.vis.line(X=torch.tensor([epoch]), Y=torch.tensor([train_loss]), win='loss', name='train',
+                      opts=dict(title='loss', xlabel='epoch', ylabel='loss'),
                       update='append' if epoch > 0 else None)
 
     def validation(self, epoch):
@@ -126,17 +130,14 @@ class Trainer(object):
         print("Acc:{}, IoU:{}, mIoU:{}".format(Acc, IoU, mIoU))
         print('Loss: %.3f' % test_loss)
 
-        self.vis.line(X=torch.tensor([epoch]), Y=torch.tensor([test_loss]), win='val_loss',
-                      opts=dict(title='val loss', xlabel='epoch', ylabel='val_loss'),
-                      update='append' if epoch > 0 else None)
+        self.vis.line(X=torch.tensor([epoch]), Y=torch.tensor([test_loss]), win='loss', name='val',
+                      update='append')
         self.vis.line(X=torch.tensor([epoch]), Y=torch.tensor([Acc]), win='metrics', name='acc',
                       opts=dict(title='metrics', xlabel='epoch', ylabel='performance'),
                       update='append' if epoch > 0 else None)
         self.vis.line(X=torch.tensor([epoch]), Y=torch.tensor([IoU]), win='metrics', name='IoU',
-                      opts=dict(title='metrics', xlabel='epoch', ylabel='performance'),
                       update='append')
         self.vis.line(X=torch.tensor([epoch]), Y=torch.tensor([mIoU]), win='metrics', name='mIoU',
-                      opts=dict(title='metrics', xlabel='epoch', ylabel='performance'),
                       update='append')
 
         new_pred = mIoU
@@ -170,7 +171,7 @@ def main():
     parser.add_argument('--checkname', type=str, default=None)
     parser.add_argument('--save_folder', default='train_log/',
                         help='Directory for saving checkpoint models')
-    parser.add_argument('--env', type=str, default='deeplab_segmentation',
+    parser.add_argument('--env', type=str, default='deeplab',
                         help='visdom environment')
 
     args = parser.parse_args()
@@ -178,8 +179,12 @@ def main():
         os.mkdir(args.save_folder)
     if not os.path.exists(args.save_folder + 'eval/'):
         os.mkdir(args.save_folder + 'eval/')
-    if not os.path.exists(args.save_folder + 'models/'):
-        os.mkdir(args.save_folder + 'models/')
+    # if not os.path.exists(args.save_folder + 'models/'):
+    #     os.mkdir(args.save_folder + 'models/')
+    if not os.path.exists('/usr/xtmp/satellite/train_models/' + os.getcwd().split('/')[-1]):
+        os.mkdir('/usr/xtmp/satellite/train_models/' + os.getcwd().split('/')[-1])
+        os.symlink('/usr/xtmp/satellite/train_models/' + os.getcwd().split('/')[-1], args.save_folder + 'models')
+        print('Create soft link!')
 
     args.cuda = not args.no_cuda and torch.cuda.is_available()
     if args.cuda:
