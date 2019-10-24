@@ -3,7 +3,7 @@ import os
 import numpy as np
 from tqdm import tqdm
 import torch.backends.cudnn as cudnn
-#from mypath import Path
+# from mypath import Path
 from common import config
 from data import make_data_loader
 from model.sync_batchnorm.replicate import patch_replication_callback
@@ -12,12 +12,15 @@ from utils.loss import SegmentationLosses
 from utils.lr_scheduler import LR_Scheduler
 from utils.metrics import Evaluator
 import json
+import visdom
+import torch
+
 
 class Trainer(object):
     def __init__(self, config, args):
         self.args = args
         self.config = config
-
+        self.vis = visdom.Visdom(env=args.env+'_'+self.config.backbone)
         # Define Dataloader
         self.train_loader, self.val_loader, self.test_loader, self.nclass = make_data_loader(config)
 
@@ -44,21 +47,21 @@ class Trainer(object):
         self.evaluator = Evaluator(self.nclass)
         # Define lr scheduler
         self.scheduler = LR_Scheduler(config.lr_scheduler, config.lr,
-                                            config.epochs, len(self.train_loader),
-                                            config.lr_step, config.warmup_epochs)
+                                      config.epochs, len(self.train_loader),
+                                      config.lr_step, config.warmup_epochs)
 
         # Using cuda
         if args.cuda:
             self.model = torch.nn.DataParallel(self.model)
             patch_replication_callback(self.model)
-            #cudnn.benchmark = True
+            # cudnn.benchmark = True
             self.model = self.model.cuda()
 
         # Resuming checkpoint
         self.best_pred = 0.0
         if args.resume is not None:
             if not os.path.isfile(args.resume):
-                raise RuntimeError("=> no checkpoint found at '{}'" .format(args.resume))
+                raise RuntimeError("=> no checkpoint found at '{}'".format(args.resume))
             checkpoint = torch.load(args.resume)
             args.start_epoch = checkpoint['epoch']
             if args.cuda:
@@ -69,7 +72,6 @@ class Trainer(object):
             self.best_pred = checkpoint['best_pred']
             print("=> loaded checkpoint '{}' (epoch {})"
                   .format(args.resume, checkpoint['epoch']))
-
 
     def training(self, epoch):
         train_loss = 0.0
@@ -92,6 +94,9 @@ class Trainer(object):
         print('[Epoch: %d, numImages: %5d]' % (epoch, i * self.config.batch_size + image.data.shape[0]))
         print('Loss: %.3f' % train_loss)
 
+        self.vis.line(X=torch.tensor([epoch]), Y=torch.tensor([train_loss]), win='train_loss',
+                      opts=dict(title='train loss', xlabel='epoch', ylabel='train loss'),
+                      update='append' if epoch > 0 else None)
 
     def validation(self, epoch):
         self.model.eval()
@@ -115,14 +120,27 @@ class Trainer(object):
 
         # Fast test during the training
         Acc = self.evaluator.Building_Acc()
-        #Acc_class = self.evaluator.Pixel_Accuracy_Class()
+        # Acc_class = self.evaluator.Pixel_Accuracy_Class()
         IoU = self.evaluator.Building_IoU()
         mIoU = self.evaluator.Mean_Intersection_over_Union()
-        #FWIoU = self.evaluator.Frequency_Weighted_Intersection_over_Union()
+        # FWIoU = self.evaluator.Frequency_Weighted_Intersection_over_Union()
         print('Validation:')
         print('[Epoch: %d, numImages: %5d]' % (epoch, i * self.config.batch_size + image.data.shape[0]))
         print("Acc:{}, IoU:{}, mIoU:{}".format(Acc, IoU, mIoU))
         print('Loss: %.3f' % test_loss)
+
+        self.vis.line(X=torch.tensor([epoch]), Y=torch.tensor([test_loss]), win='val_loss',
+                      opts=dict(title='val loss', xlabel='epoch', ylabel='val_loss'),
+                      update='append' if epoch > 0 else None)
+        self.vis.line(X=torch.tensor([epoch]), Y=torch.tensor([Acc]), win='metrics', name='acc',
+                      opts=dict(title='metrics', xlabel='epoch', ylabel='performance'),
+                      update='append' if epoch > 0 else None)
+        self.vis.line(X=torch.tensor([epoch]), Y=torch.tensor([IoU]), win='metrics', name='IoU',
+                      opts=dict(title='metrics', xlabel='epoch', ylabel='performance'),
+                      update='append')
+        self.vis.line(X=torch.tensor([epoch]), Y=torch.tensor([mIoU]), win='metrics', name='mIoU',
+                      opts=dict(title='metrics', xlabel='epoch', ylabel='performance'),
+                      update='append')
 
         new_pred = mIoU
         if new_pred > self.best_pred:
@@ -130,9 +148,9 @@ class Trainer(object):
             self.best_pred = new_pred
             print('Saving state, epoch:', epoch)
             torch.save(self.model.module.state_dict(), self.args.save_folder + 'models/'
-                   + 'epoch' + str(epoch) + '.pth')
+                       + 'epoch' + str(epoch) + '.pth')
             loss_file = {'Acc': Acc, 'IoU': IoU, 'mIou': mIoU}
-            with open(os.path.join(self.args.save_folder, 'eval', 'epoch' + str(epoch)+'.json'), 'w') as f:
+            with open(os.path.join(self.args.save_folder, 'eval', 'epoch' + str(epoch) + '.json'), 'w') as f:
                 json.dump(loss_file, f)
 
 
@@ -143,7 +161,7 @@ def main():
                         metavar='N', help='start epochs (default:0)')
     # cuda, seed and logging
     parser.add_argument('--no-cuda', action='store_true', default=
-                        False, help='disables CUDA training')
+    False, help='disables CUDA training')
     parser.add_argument('--gpu', type=str, default='0',
                         help='use which gpu to train, must be a \
                         comma-separated list of integers only (default=0)')
@@ -154,8 +172,9 @@ def main():
                         help='put the path to resuming file if needed')
     parser.add_argument('--checkname', type=str, default=None)
     parser.add_argument('--save_folder', default='train_log/',
-                            help='Directory for saving checkpoint models')
-
+                        help='Directory for saving checkpoint models')
+    parser.add_argument('--env', type=str, default='deeplab_segmentation',
+                        help='visdom environment')
 
     args = parser.parse_args()
     if not os.path.exists(args.save_folder):
@@ -173,13 +192,15 @@ def main():
     print(args)
     torch.manual_seed(args.seed)
     trainer = Trainer(config, args)
+
     print('Starting Epoch:', trainer.args.start_epoch)
     print('Total Epoches:', trainer.config.epochs)
+
     for epoch in range(trainer.args.start_epoch, trainer.config.epochs):
         trainer.training(epoch)
-        #if not trainer.args.no_val and epoch % args.eval_interval == (args.eval_interval - 1):
+        # if not trainer.args.no_val and epoch % args.eval_interval == (args.eval_interval - 1):
         trainer.validation(epoch)
 
 
 if __name__ == "__main__":
-   main()
+    main()
