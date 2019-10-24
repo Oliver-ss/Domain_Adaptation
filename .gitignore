@@ -1,7 +1,8 @@
 *.jpg
 *.pth
 *.jpeg
-*.tif
+*.tifi
+*.json
 ._*
 *.ipynb
 checkpoints/
@@ -10,3 +11,4 @@ __pycache__
 Images
 .ipynb_checkpoints
 models
+

@@ -20,7 +20,7 @@ class Trainer(object):
     def __init__(self, config, args):
         self.args = args
         self.config = config
-        self.vis = visdom.Visdom(env=args.env+'_'+self.config.backbone)
+        self.vis = visdom.Visdom(env=os.getcwd().split('/')[-1])
         # Define Dataloader
         self.train_loader, self.val_loader, self.test_loader, self.nclass = make_data_loader(config)
 
@@ -171,8 +171,6 @@ def main():
     parser.add_argument('--checkname', type=str, default=None)
     parser.add_argument('--save_folder', default='train_log/',
                         help='Directory for saving checkpoint models')
-    parser.add_argument('--env', type=str, default='deeplab',
-                        help='visdom environment')
 
     args = parser.parse_args()
     if not os.path.exists(args.save_folder):
