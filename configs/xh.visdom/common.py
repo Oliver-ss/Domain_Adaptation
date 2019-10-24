@@ -6,7 +6,7 @@
  ************************************************************************'''
 class Config:
     #Model
-    backbone = 'resnet' #backbone name ['resnet', 'xception', 'drn', 'mobilenet']
+    backbone = 'mobilenet' #backbone name ['resnet', 'xception', 'drn', 'mobilenet']
     out_stride = 8 #network output stride
 
     #Data
@@ -19,13 +19,13 @@ class Config:
     freeze_bn = False
     sync_bn = False
     loss = 'ce' #['ce', 'focal']
-    epochs = 50
+    epochs = 500
     lr = 1e-3
     momentum = 0.9
     weight_decay = 5e-4
-    lr_scheduler = 'poly'
+    lr_scheduler = 'cos'
     lr_step = 5
-    warmup_epochs = 5
+    warmup_epochs = 10
 
 
 config = Config()
