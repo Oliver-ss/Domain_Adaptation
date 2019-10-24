@@ -11,11 +11,20 @@ from torch.utils.data import DataLoader
 import numpy as np
 
 class Test:
-    def __init__(self, model_path, source, target, cuda=False):
-        self.source_set = spacenet.Spacenet(city=source, split='test', img_root=config.img_root)
-        self.target_set = spacenet.Spacenet(city=target, split='test', img_root=config.img_root)
+    def __init__(self, model_path, config, cuda=False):
+        self.target=config.all_dataset
+        self.target.remove(config.dataset)
+        # load source domain
+        self.source_set = spacenet.Spacenet(city=config.dataset, split='test', img_root=config.img_root)
         self.source_loader = DataLoader(self.source_set, batch_size=16, shuffle=False, num_workers=2)
-        self.target_loader = DataLoader(self.target_set, batch_size=16, shuffle=False, num_workers=2)
+
+        self.target_set = []
+        self.target_loader = []
+        # load other domains
+        for city in self.target:
+            tmp = spacenet.Spacenet(city=city, split='test', img_root=config.img_root)
+            self.target_set.append(tmp)
+            self.target_loader.append(DataLoader(tmp, batch_size=16, shuffle=False, num_workers=2))
 
         self.model = DeepLab(num_classes=2,
                 backbone=config.backbone,
@@ -56,27 +65,34 @@ class Test:
         return Acc, IoU, mIoU
 
     def test(self):
-        sA, sI, sIm = self.get_performance(self.source_loader)
-        tA, tI, tIm = self.get_performance(self.target_loader)
-        print('Test for source domain:')
-        print("Acc:{}, IoU:{}, mIoU:{}".format(sA, sI, sIm))
+        A, I, Im = self.get_performance(self.source_loader)
+        tA, tI, tIm = [], [], []
+        for dl in self.target_loader:
+            tA_, tI_, tIm_ = self.get_performance(dl)
+            tA.append(tA_)
+            tI.append(tI_)
+            tIm.append(tIm_)
+
+        res = {}
+        print("Test for source domain:")
+        print("{}: Acc:{}, IoU:{}, mIoU:{}".format(config.dataset, A, I, Im))
+        res[config.dataset] = {'Acc': A, 'IoU': I, 'mIoU':Im}
+
         print('Test for target domain:')
-        print("Acc:{}, IoU:{}, mIoU:{}".format(tA, tI, tIm))
-        res = {'source':{'Acc': sA, 'IoU': sI, 'mIoU': sIm},
-                'target':{'Acc': tA, 'IoU': tI, 'mIoU': tIm}}
+        for i, city in enumerate(self.target):
+            print("{}: Acc:{}, IoU:{}, mIoU:{}".format(city, tA[i], tI[i], tIm[i]))
+            res[city] = {'Acc': tA[i], 'IoU': tI[i], 'mIoU': tIm[i]}
         with open('train_log/test.json', 'w') as f:
             json.dump(res, f)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('model', default='train_log/models/epoch1.pth')
-    parser.add_argument('--source', default='Shanghai')
-    parser.add_argument('--target', default= ['Vegas', 'Paris', 'Khartoum'])
     parser.add_argument('--cuda', default=True)
-    
+ 
     args = parser.parse_args()
 
-    test = Test(args.model, args.source, args.target, args.cuda)
+    test = Test(args.model, config, args.cuda)
     test.test()
 
 
