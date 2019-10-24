@@ -63,15 +63,12 @@ class Trainer(object):
             if not os.path.isfile(args.resume):
                 raise RuntimeError("=> no checkpoint found at '{}'".format(args.resume))
             checkpoint = torch.load(args.resume)
-            args.start_epoch = checkpoint['epoch']
             if args.cuda:
-                self.model.module.load_state_dict(checkpoint['state_dict'])
+                self.model.module.load_state_dict(checkpoint)
             else:
-                self.model.load_state_dict(checkpoint['state_dict'])
-            self.optimizer.load_state_dict(checkpoint['optimizer'])
-            self.best_pred = checkpoint['best_pred']
+                self.model.load_state_dict(checkpoint, map_location=torch.device('cpu'))
             print("=> loaded checkpoint '{}' (epoch {})"
-                  .format(args.resume, checkpoint['epoch']))
+                  .format(args.resume, args.start_epoch))
 
     def training(self, epoch):
         train_loss = 0.0
@@ -149,7 +146,7 @@ class Trainer(object):
             print('Saving state, epoch:', epoch)
             torch.save(self.model.module.state_dict(), self.args.save_folder + 'models/'
                        + 'epoch' + str(epoch) + '.pth')
-            loss_file = {'Acc': Acc, 'IoU': IoU, 'mIou': mIoU}
+            loss_file = {'Acc': Acc, 'IoU': IoU, 'mIoU': mIoU}
             with open(os.path.join(self.args.save_folder, 'eval', 'epoch' + str(epoch) + '.json'), 'w') as f:
                 json.dump(loss_file, f)
 
