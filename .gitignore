@@ -1,8 +1,7 @@
 *.jpg
 *.pth
 *.jpeg
-*.tifi
-*.json
+*.tif
 ._*
 *.ipynb
 checkpoints/
