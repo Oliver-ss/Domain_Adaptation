@@ -5,4 +5,6 @@ watch:
 	python3 ../../scripts/show_table.py
 
 test:
-	python3 test.py
+	python3 ../../scripts/base_test.py ${MODEL} ${BN} ${SAVE}
+BN = True
+SAVE = 0
