@@ -168,11 +168,14 @@ class Test:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('model', default='train_log/models/epoch1.pth')
-    parser.add_argument('bn', default=True)
+    parser.add_argument('bn', default=True,
+            help='whether to use BN adaptation')
     parser.add_argument('save_batch', default=0, type=int,
             help='number of test images to save (n*batch_size)')
-    parser.add_argument('--cuda', default=True)
-    parser.add_argument('--save_path', default='train_log/test_images/')
+    parser.add_argument('--cuda', default=True,
+            help='whether to use GPU')
+    parser.add_argument('--save_path', default='train_log/test_images/',
+            help='path to save images')
     args = parser.parse_args()
 
     test = Test(args.model, config, args.bn, args.save_path, args.save_batch, args.cuda)
