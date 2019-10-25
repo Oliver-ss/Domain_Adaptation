@@ -7,7 +7,6 @@
 checkpoints/
 __pycache__/
 __pycache__
-Images
 .ipynb_checkpoints
 models
-
+test_images
