@@ -20,11 +20,17 @@ class Test:
 
         self.target_set = []
         self.target_loader = []
+        self.target_trainset = []
+        self.target_trainloader = []
         # load other domains
         for city in self.target:
-            tmp = spacenet.Spacenet(city=city, split='test', img_root=config.img_root)
-            self.target_set.append(tmp)
-            self.target_loader.append(DataLoader(tmp, batch_size=16, shuffle=False, num_workers=2))
+            test = spacenet.Spacenet(city=city, split='test', img_root=config.img_root)
+            train = spacenet.Spacenet(city=city, split='train', img_root=config.img_root) 
+            self.target_set.append(test)
+            self.target_trainset.append(train)
+
+            self.target_loader.append(DataLoader(test, batch_size=16, shuffle=False, num_workers=2))
+            self.target_trainloader.append(DataLoader(train, batch_size=16, shuffle=False, num_workers=2))
 
         self.model = DeepLab(num_classes=2,
                 backbone=config.backbone,
@@ -35,14 +41,24 @@ class Test:
             self.checkpoint = torch.load(model_path)
         else:
             self.checkpoint = torch.load(model_path, map_location=torch.device('cpu'))
-        #print(self.checkpoint.keys())
         self.model.load_state_dict(self.checkpoint)
-        self.evaluator = Evaluator(2)
+        self.evaluator = Evaluator(2) 
         self.cuda = cuda
         if cuda:
             self.model = self.model.cuda()
 
-    def get_performance(self, dataloader):
+    def get_performance(self, dataloader, trainloader, if_source):
+        # change mean and var of bn to adapt to the target domain
+        if not if_source:
+            self.model.train()
+            for sample in trainloader:
+                image, target = sample['image'], sample['label']
+                if self.cuda:
+                    image, target = image.cuda(), target.cuda()
+                with torch.no_grad():
+                    output = self.model(image)
+
+        # evaluate the model
         self.model.eval()
         self.evaluator.reset()
         tbar = tqdm(dataloader, desc='\r')
@@ -65,10 +81,10 @@ class Test:
         return Acc, IoU, mIoU
 
     def test(self):
-        A, I, Im = self.get_performance(self.source_loader)
+        A, I, Im = self.get_performance(self.source_loader, None, True)
         tA, tI, tIm = [], [], []
-        for dl in self.target_loader:
-            tA_, tI_, tIm_ = self.get_performance(dl)
+        for dl, tl in zip(self.target_loader, self.target_trainloader):
+            tA_, tI_, tIm_ = self.get_performance(dl, tl, False)
             tA.append(tA_)
             tI.append(tI_)
             tIm.append(tIm_)
@@ -82,7 +98,7 @@ class Test:
         for i, city in enumerate(self.target):
             print("{}: Acc:{}, IoU:{}, mIoU:{}".format(city, tA[i], tI[i], tIm[i]))
             res[city] = {'Acc': tA[i], 'IoU': tI[i], 'mIoU': tIm[i]}
-        with open('train_log/test.json', 'w') as f:
+        with open('train_log/test_bn.json', 'w') as f:
             json.dump(res, f)
 
 if __name__ == "__main__":

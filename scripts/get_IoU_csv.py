@@ -42,5 +42,5 @@ def append_to_csv(exp_name):
 
 
 if __name__ == '__main__':
-    exp_name = 'xh.deeplab.mobilenet.vegas'
+    exp_name = 'xh.deeplab.mobilenet.khartoum'
     append_to_csv(exp_name)

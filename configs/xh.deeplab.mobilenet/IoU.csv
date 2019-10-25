@@ -3,3 +3,7 @@ shanghai.test,0.66,0.46,0.36,0.37
 shanghai.test_bn,0.66,0.51,0.41,0.38
 vegas.test,0.2,0.76,0.43,0.11
 vegas.test_bn,0.43,0.76,0.53,0.42
+paris.test,0.17,0.52,0.62,0.1
+paris.test_bn,0.42,0.54,0.62,0.26
+khartoum.test,0.34,0.45,0.23,0.67
+khartoum.test_bn,0.32,0.48,0.31,0.67
