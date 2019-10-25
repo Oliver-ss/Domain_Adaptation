@@ -26,6 +26,7 @@ def main(args):
             if not os.path.exists("./train_log/models/{}.pth".format(res[0])):
                 continue
             cmd = "rm ./train_log/models/{}.pth".format(res[0])
+            cmd = "rm ./train_log/eval/{}.json".format(res[0])
             os.system(cmd)
 
         keys = ['Acc', 'IoU', 'mIoU']
