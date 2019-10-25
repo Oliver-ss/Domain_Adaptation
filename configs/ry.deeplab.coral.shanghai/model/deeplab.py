@@ -30,7 +30,20 @@ class DeepLab(nn.Module):
         x = self.aspp(x)
         x = self.decoder(x, low_level_feat)
         x = F.interpolate(x, size=input.size()[2:], mode='bilinear', align_corners=True)
-
+        return x
+    
+    def get_low_feat(self, input):
+        x, low_level_feat = self.backbone(input)
+        return low_level_feat
+    
+    def get_neck(self, input):
+        x, low_level_feat = self.backbone(input)
+        x = self.aspp(x)
+        return x, low_level_feat, input.size()[2:]
+    
+    def decode(self, neck, low_level_feat, input_size):
+        x = self.decoder(neck, low_level_feat)
+        x = F.interpolate(x, size=input_size, mode='bilinear', align_corners=True)
         return x
 
     def freeze_bn(self):

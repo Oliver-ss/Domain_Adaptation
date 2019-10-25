@@ -86,6 +86,49 @@ class Test:
         with open('train_log/test.json', 'w') as f:
             json.dump(res, f)
 
+    def neck_coral_performance(self, dataloader):
+        self.model.eval()
+        self.evaluator.reset()
+        tbar = tqdm(dataloader, desc='\r')
+        for i, sample in enumerate(tbar):
+            image, target = sample['image'], sample['label']
+            if self.cuda:
+                image, target = image.cuda(), target.cuda()
+            with torch.no_grad():
+                neck, low_level_feat, size = self.model.get_neck(image)
+                output = self.model.decode(neck, low_level_feat, size)
+            pred = output.data.cpu().numpy()
+            target = target.cpu().numpy()
+            pred = np.argmax(pred, axis=1)
+            # Add batch sample into evaluator
+            self.evaluator.add_batch(target, pred)
+
+        # Fast test during the training
+        Acc = self.evaluator.Building_Acc()
+        IoU = self.evaluator.Building_IoU()
+        mIoU = self.evaluator.Mean_Intersection_over_Union()
+        return Acc, IoU, mIoU
+
+    def test_neck_coral(self):
+        A, I, Im = self.neck_coral_performance(self.source_loader)
+        tA, tI, tIm = [], [], []
+        for dl in self.target_loader:
+            tA_, tI_, tIm_ = self.get_performance(dl)
+            tA.append(tA_)
+            tI.append(tI_)
+            tIm.append(tIm_)
+
+        res = {}
+        print("Test for source domain:")
+        print("{}: Acc:{}, IoU:{}, mIoU:{}".format(config.dataset, A, I, Im))
+        res[config.dataset] = {'Acc': A, 'IoU': I, 'mIoU':Im}
+
+        print('Test for target domain:')
+        for i, city in enumerate(self.target):
+            print("{}: Acc:{}, IoU:{}, mIoU:{}".format(city, tA[i], tI[i], tIm[i]))
+            res[city] = {'Acc': tA[i], 'IoU': tI[i], 'mIoU': tIm[i]}
+        with open('train_log/test.json', 'w') as f:
+            json.dump(res, f)
 
 
 
@@ -97,6 +140,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     test = Test(args.model, config, args.cuda)
-    test.test()
+    test.test_neck_coral()
 
 
