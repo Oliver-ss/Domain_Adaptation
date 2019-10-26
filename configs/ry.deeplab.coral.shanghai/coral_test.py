@@ -263,6 +263,6 @@ if __name__ == "__main__":
             help='path to save images')
     args = parser.parse_args()
     test = Test(args.model, config, args.bn, args.save_path, args.save_batch, args.cuda)
-    test.test()
+    test.test_neck_coral()
 
 
