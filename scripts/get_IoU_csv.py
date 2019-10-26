@@ -1,46 +1,74 @@
 import csv
 import os
 import json
+import argparse
+import re
 
+city = ['Shanghai', 'Vegas', 'Paris', 'Khartoum']
+fieldnames = ['exp', 'Shanghai', 'boost_Shanghai', 'Vegas', 'boost_Vegas', 'Paris', 'boost_Paris', 'Khartoum',
+              'boost_Khartoum', 'avg_boost']
 
-def append_to_csv(exp_name):
-    filepath = os.path.join('../configs', exp_name, 'train_log')
-    test_path = os.path.join(filepath, 'test.json')
-    test_bn_path = os.path.join(filepath, 'test_bn.json')
-    csv_folder = os.path.join('../configs', '.'.join(exp_name.split('.')[:-1]))
-    if not os.path.exists(csv_folder):
-        os.mkdir(csv_folder)
+def main(args):
+    result_folder = '../results'
+    if not os.path.exists(result_folder):
+        os.makedirs(result_folder)
+
+    for i in range(4):
+        if re.search(city[i], args.exp, re.IGNORECASE):
+            source_city = city[i]
+            break
+
+    csv_name = os.path.join(result_folder, source_city + '.csv')
+
+    all_result = []
+    if os.path.exists(csv_name):
+        with open(csv_name, 'r') as f:
+            reader = csv.DictReader(f)
+            for exp in reader:
+                all_result.append(exp)
+
+    test_path = os.path.join('../configs', args.exp, 'train_log', args.name)
     with open(test_path) as f:
         test = json.load(f)
-    with open(test_bn_path) as f:
-        test_bn = json.load(f)
-    fieldnames = ['source','Shanghai', 'Vegas', 'Paris', 'Khartoum']
-    if not os.path.exists(os.path.join(csv_folder, 'IoU.csv')):
-        write_header = True
-    else:
-        write_header = False
-    with open(os.path.join(csv_folder, 'IoU.csv'), 'a+') as f:
+    result_dict = {}
+    for i in range(4):
+        result_dict[city[i]] = round(test[city[i]]['IoU'], 2)
+
+    if not args.is_baseline:
+        baseline = all_result[1]
+    result_dict['exp'] = args.exp if args.name == 'test.json' else args.exp + '.' + args.name.split('.')[0]
+    avg_boost = 0
+    for i in range(4):
+        if args.is_baseline:
+            result_dict['boost_' + city[i]] = 0
+        else:
+            result_dict['boost_' + city[i]] = round(
+                (result_dict[city[i]] - float(baseline[city[i]])) / float(baseline[city[i]]), 2)
+        avg_boost += result_dict['boost_' + city[i]]
+    result_dict['avg_boost'] = round(avg_boost/4, 2)
+
+    is_inserted = False
+    if not args.is_baseline:
+        for i in range(2, len(all_result)):
+            if result_dict['avg_boost'] >= float(all_result[i]['avg_boost']):
+                all_result.insert(i, result_dict)
+                is_inserted = True
+                break
+    if not is_inserted:
+        all_result.append(result_dict)
+
+    with open(csv_name, 'w') as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
-        if write_header:
-            writer.writeheader()
-        # test
-        source_name = exp_name.split('.')[-1] + '.test'
-        writer.writerow({fieldnames[0]: source_name,
-                         fieldnames[1]: round(test[fieldnames[1]]['IoU'], 2),
-                         fieldnames[2]: round(test[fieldnames[2]]['IoU'], 2),
-                         fieldnames[3]: round(test[fieldnames[3]]['IoU'], 2),
-                         fieldnames[4]: round(test[fieldnames[4]]['IoU'], 2),
-                         })
-        # test_bn
-        source_name = exp_name.split('.')[-1] + '.test_bn'
-        writer.writerow({fieldnames[0]: source_name,
-                         fieldnames[1]: round(test_bn[fieldnames[1]]['IoU'], 2),
-                         fieldnames[2]: round(test_bn[fieldnames[2]]['IoU'], 2),
-                         fieldnames[3]: round(test_bn[fieldnames[3]]['IoU'], 2),
-                         fieldnames[4]: round(test_bn[fieldnames[4]]['IoU'], 2),
-                         })
+        writer.writeheader()
+        for i in range(len(all_result)):
+            writer.writerow(all_result[i])
 
 
 if __name__ == '__main__':
-    exp_name = 'xh.deeplab.mobilenet.khartoum'
-    append_to_csv(exp_name)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("exp", type=str)
+    parser.add_argument("--name", type=str, default="test.json")
+    parser.add_argument("--is_baseline", type=bool, default=False)
+
+    args = parser.parse_args()
+    main(args)
