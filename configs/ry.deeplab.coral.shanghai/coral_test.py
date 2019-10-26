@@ -163,8 +163,6 @@ class Test:
         data_neck = []
         data_low_feat = []
         data_target = []
-        self.model.eval()
-        self.evaluator.reset()
         tbar = tqdm(dataloader, desc='\r')
         for i, sample in enumerate(tbar):
             image, target = sample['image'], sample['label']
@@ -200,9 +198,28 @@ class Test:
 
     def test_neck_coral(self):
         '''
-        Evaluate performance with CORAL applied to bottle-neck features
+        Apply CORAL to bottle-neck features
+        Measure performamce
         '''
-
+        src_target, src_neck, src_low_feat, src_size = self.get_neck_feat(self.source_loader)
+        A, I, Im = self.neck_coral_performance(src_target, src_neck, src_low_feat, src_size)
+        tA, tI, tIm = [], [], []
+        for dl in self.target_loader:
+            t_target, t_neck, t_low_feat, t_size = self.get_neck_feat(dl)
+            curA, cur_I, cur_Im = self.neck_coral_performance(t_target, t_neck, t_low_feat, t_size)
+            tA.append(cur_A)
+            tI.append(cur_I)
+            tIm.append(cur_Im)
+        res = {}
+        print("Test for source domain:")
+        print("{}: Acc:{}, IoU:{}, mIoU:{}".format(config.dataset, A, I, Im))
+        res[config.dataset] = {'Acc':A, 'IoU':I, 'mIoU':Im}
+        print('Test for target domain:')
+        for i, city in enumerate(self.target):
+            print("{}: Acc:{}, IoU:{}, mIoU:{}".format(city, tA[i], tI[i], tIm[i]))
+            res[city] = {'Acc': tA[i], 'IoU': tI[i], 'mIoU': tIm[i]}
+        with open('train log/test.json', 'w') as f:
+            json.dump(res, f)
 
     def save_images(self, imgs, batch_index, save_path, if_original=False):
         for i, img in enumerate(imgs):
