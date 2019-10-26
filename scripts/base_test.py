@@ -15,7 +15,7 @@ import cv2
 
 
 class Test:
-    def __init__(self, model_path,config, bn, save_path, save_batch, cuda=False):
+    def __init__(self, model_path, config, bn, save_path, save_batch, cuda=False):
         self.bn = bn
         self.target=config.all_dataset
         self.target.remove(config.dataset)
@@ -32,15 +32,16 @@ class Test:
         self.target_trainset = []
         self.target_trainloader = []
 
+        self.config = config
+
         # load other domains
         for city in self.target:
             test = spacenet.Spacenet(city=city, split='test', img_root=config.img_root)
             self.target_set.append(test)
             self.target_loader.append(DataLoader(test, batch_size=16, shuffle=False, num_workers=2))
-            if bn:
-                train = spacenet.Spacenet(city=city, split='train', img_root=config.img_root)
-                self.target_trainset.append(train)
-                self.target_trainloader.append(DataLoader(train, batch_size=16, shuffle=False, num_workers=2))
+            train = spacenet.Spacenet(city=city, split='train', img_root=config.img_root)
+            self.target_trainset.append(train)
+            self.target_trainloader.append(DataLoader(train, batch_size=16, shuffle=False, num_workers=2))
 
         self.model = DeepLab(num_classes=2,
                 backbone=config.backbone,
@@ -60,7 +61,8 @@ class Test:
 
     def get_performance(self, dataloader, trainloader, city):
         # change mean and var of bn to adapt to the target domain
-        if self.bn and city != config.dataset:
+        if self.bn and city != self.config.dataset:
+            print('BN Adaptation on' + city)
             self.model.train()
             for sample in trainloader:
                 image, target = sample['image'], sample['label']
@@ -113,7 +115,7 @@ class Test:
         return Acc, IoU, mIoU
 
     def test(self):
-        A, I, Im = self.get_performance(self.source_loader, None, config.dataset)
+        A, I, Im = self.get_performance(self.source_loader, None, self.config.dataset)
         tA, tI, tIm = [], [], []
         for dl, tl, city in zip(self.target_loader, self.target_trainloader, self.target):
             tA_, tI_, tIm_ = self.get_performance(dl, tl, city)
@@ -123,7 +125,7 @@ class Test:
 
         res = {}
         print("Test for source domain:")
-        print("{}: Acc:{}, IoU:{}, mIoU:{}".format(config.dataset, A, I, Im))
+        print("{}: Acc:{}, IoU:{}, mIoU:{}".format(self.config.dataset, A, I, Im))
         res[config.dataset] = {'Acc': A, 'IoU': I, 'mIoU':Im}
 
         print('Test for target domain:')
@@ -166,9 +168,12 @@ class Test:
         return imgs
 
 if __name__ == "__main__":
+    def str2bool(v):
+        return v.lower() in ("yes", "true", "t", "1")
+
     parser = argparse.ArgumentParser()
     parser.add_argument('model', default='train_log/models/epoch1.pth')
-    parser.add_argument('bn', default=True,
+    parser.add_argument('bn', default=True, type=str2bool,
             help='whether to use BN adaptation')
     parser.add_argument('save_batch', default=0, type=int,
             help='number of test images to save (n*batch_size)')
@@ -177,7 +182,6 @@ if __name__ == "__main__":
     parser.add_argument('--save_path', default='train_log/test_images/',
             help='path to save images')
     args = parser.parse_args()
-
     test = Test(args.model, config, args.bn, args.save_path, args.save_batch, args.cuda)
     test.test()
 
