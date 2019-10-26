@@ -7,7 +7,7 @@ def append_to_csv(exp_name):
     filepath = os.path.join('../configs', exp_name, 'train_log')
     test_path = os.path.join(filepath, 'test.json')
     test_bn_path = os.path.join(filepath, 'test_bn.json')
-    csv_folder = os.path.join('../configs', '.'.join(exp_name.split('.')[:-1]))
+    csv_folder = '../results'
     if not os.path.exists(csv_folder):
         os.mkdir(csv_folder)
     with open(test_path) as f:
