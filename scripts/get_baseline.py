@@ -1,10 +1,11 @@
 import csv
 import os
 import json
+import argparse
 
 
-def append_to_csv(exp_name):
-    filepath = os.path.join('../configs', exp_name, 'train_log')
+def append_to_csv(args):
+    filepath = os.path.join('../configs', args.exp, 'train_log')
     test_path = os.path.join(filepath, 'test.json')
     test_bn_path = os.path.join(filepath, 'test_bn.json')
     csv_folder = '../results'
@@ -15,16 +16,16 @@ def append_to_csv(exp_name):
     with open(test_bn_path) as f:
         test_bn = json.load(f)
     fieldnames = ['source','Shanghai', 'Vegas', 'Paris', 'Khartoum']
-    if not os.path.exists(os.path.join(csv_folder, 'IoU.csv')):
+    if not os.path.exists(os.path.join(csv_folder, 'baseline.csv')):
         write_header = True
     else:
         write_header = False
-    with open(os.path.join(csv_folder, 'IoU.csv'), 'a+') as f:
+    with open(os.path.join(csv_folder, 'baseline.csv'), 'a') as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         if write_header:
             writer.writeheader()
         # test
-        source_name = exp_name.split('.')[-1] + '.test'
+        source_name = args.exp.split('.')[-1] + '.test'
         writer.writerow({fieldnames[0]: source_name,
                          fieldnames[1]: round(test[fieldnames[1]]['IoU'], 2),
                          fieldnames[2]: round(test[fieldnames[2]]['IoU'], 2),
@@ -32,7 +33,7 @@ def append_to_csv(exp_name):
                          fieldnames[4]: round(test[fieldnames[4]]['IoU'], 2),
                          })
         # test_bn
-        source_name = exp_name.split('.')[-1] + '.test_bn'
+        source_name = args.exp.split('.')[-1] + '.test_bn'
         writer.writerow({fieldnames[0]: source_name,
                          fieldnames[1]: round(test_bn[fieldnames[1]]['IoU'], 2),
                          fieldnames[2]: round(test_bn[fieldnames[2]]['IoU'], 2),
@@ -42,5 +43,7 @@ def append_to_csv(exp_name):
 
 
 if __name__ == '__main__':
-    exp_name = 'xh.deeplab.mobilenet.khartoum'
-    append_to_csv(exp_name)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("exp", type=str)
+    args = parser.parse_args()
+    append_to_csv(args)
