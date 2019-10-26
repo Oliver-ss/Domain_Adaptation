@@ -21,12 +21,49 @@ def CORAL(Xs, Xt):
     :param Xt: target feature
     :return: Transformed source domain feature
     '''
-    Xs, Xt = Xs.numpy(), Xt.numpy()
     cov_s = np.cov(Xs.T) + np.eye(Xs.shape[1])
     cov_t = np.cov(Xt.T) + np.eye(Xt.shape[1])
     A = np.dot(fractional_matrix_power(cov_s, -0.5), fractional_matrix_power(cov_t, -0.5))
     Xs_t = np.dot(Xs, A)
-    return torch.tensor(Xs_t.real)
+    return Xs_t.real
+
+def neck_coral(src_feat, tar_feat):
+    '''
+    Perform CORAL on each layer of feature map
+    :param src_feat: source domain bottle neck features
+    :param tar_feat: target domain bottle neck features
+    :return: Transformed target doamin feature
+    '''
+    ret = torch.Tensor(tar_feat.shape)
+    src_layers = []
+    layer_sh = src_feat[0][0].shape
+    for _ in range(len(src_feat[0])):
+        src_layers.append([])
+    for feat in src_feat:
+        for i in range(len(feat)):
+            src_layers[i].append(feat[i].view(-1))
+    for i in range(len(src_feat)):
+        src_layers[i] = torch.stack(src_layers[i])
+    tar_layers = []
+    for _ in range(len(tar_feat[0])):
+        tar_layers.append([])
+    for feat in tar_feat:
+        for i in range(len(feat)):
+            tar_layers[i].append(feat[i].view(-1))
+    for i in range(len(tar_feat)):
+        tar_layers[i] = torch.stack(tar_layers[i])
+    tans_layer = []
+    for Xs, Xt in zip(src_layers, tar_layers):
+        Xt = torch.tensor(CORAL(Xt.data.cpu().numpy(), Xs.data.cpu().numpy()))
+        trans_layer.append(Xt)
+    for i in range(len(trans_layer)):
+        for j in range(len(trans_layer[i])):
+            ret[j][i] = trans_layer[i][j]
+    for i in range(len(ret)):
+        for j in range(len(ret[i])):
+            ret[i][j] = torch.stack(ret[i][j])
+        ret[i] = torch.stack(ret[i])
+    return ret
 
 class Test:
     def __init__(self, model_path, config, bn, save_path, save_batch, cuda=False):
@@ -160,9 +197,9 @@ class Test:
         Get the features before the decoder
         So that they could be transformed
         '''
-        data_neck = []
-        data_low_feat = []
-        data_target = []
+        data_neck = torch.Tensor()
+        data_low_feat = torch.Tensor()
+        data_target = torch.Tensor()
         tbar = tqdm(dataloader, desc='\r')
         for i, sample in enumerate(tbar):
             image, target = sample['image'], sample['label']
@@ -170,11 +207,13 @@ class Test:
                 image, target = image.cuda(), target.cuda()
             with torch.no_grad():
                 neck, low_level_feat, size = self.model.get_neck(image)
-                for n, f, t in zip(neck, low_level_feat, target):
-                    data_neck.append(n)
-                    data_low_feat.append(f)
-                    data_target.append(t)
-        return torch.tensor(data_target), torch.tensor(data_neck), torch.tensor(data_low_feat), size
+            if data_neck.dim() < 2:
+                data_neck, data_low_feat, data_target = neck, low_level_feat, target
+            else:
+                data_neck = torch.cat((data_neck, neck))
+                data_target = torch.cat((data_target, target))
+                data_low_feat = torch.cat((data_low_feat, low_level_feat))
+        return data_target, data_neck, data_low_feat, size
 
     def neck_coral_performance(self, data_target, data_neck, data_low_feat, size):
         '''
@@ -202,11 +241,13 @@ class Test:
         Measure performamce
         '''
         src_target, src_neck, src_low_feat, src_size = self.get_neck_feat(self.source_loader)
-        A, I, Im = self.neck_coral_performance(src_target, src_neck, src_low_feat, src_size)
+        A, I, Im = self.neck_coral_performance(src_target, torch.unsqueeze(src_neck,dim=0), torch.unsqueeze(src_low_feat,dim=0), src_size)
+        print("On source domain:", A, I, Im)
         tA, tI, tIm = [], [], []
         for dl in self.target_loader:
             t_target, t_neck, t_low_feat, t_size = self.get_neck_feat(dl)
-            curA, cur_I, cur_Im = self.neck_coral_performance(t_target, t_neck, t_low_feat, t_size)
+            t_neck = neck_coral(src_neck, t_neck)
+            curA, cur_I, cur_Im = self.neck_coral_performance(t_target, torch.unsqueeze(t_neck,dim=0), torch.unsqueeze(t_low_feat,dim=0), t_size)
             tA.append(cur_A)
             tI.append(cur_I)
             tIm.append(cur_Im)
