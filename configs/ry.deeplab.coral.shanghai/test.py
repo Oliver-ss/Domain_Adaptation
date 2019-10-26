@@ -10,7 +10,6 @@ from common import config
 from torch.utils.data import DataLoader
 import numpy as np
 
-
 class Test:
     def __init__(self, model_path, config, cuda=False):
         self.target=config.all_dataset
@@ -136,7 +135,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('model', default='train_log/models/epoch1.pth')
     parser.add_argument('--cuda', default=True)
- 
+
     args = parser.parse_args()
 
     test = Test(args.model, config, args.cuda)
