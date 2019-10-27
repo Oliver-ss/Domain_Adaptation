@@ -34,7 +34,7 @@ def neck_coral(src_feat, tar_feat):
     :param tar_feat: target domain bottle neck features
     :return: Transformed target doamin feature
     '''
-    ret = torch.Tensor(tar_feat.shape)
+    ret = torch.Tensor(src_feat.shape)
     src_layers = []
     layer_sh = src_feat[0][0].shape
     for _ in range(len(src_feat[0])):
@@ -58,7 +58,7 @@ def neck_coral(src_feat, tar_feat):
         trans_layer.append(Xt_t)
     for i in range(len(trans_layer)):
         for j in range(len(trans_layer[i])):
-            ret[j][i] = trans_layer[i][j]
+            ret[j][i] = trans_layer[i][j].reshape(50,50)
     for i in range(len(ret)):
         for j in range(len(ret[i])):
             ret[i][j] = torch.stack(ret[i][j])
@@ -242,7 +242,8 @@ class Test:
         '''
         src_target, src_neck, src_low_feat, src_size = self.get_neck_feat(self.source_loader)
         A, I, Im = self.neck_coral_performance(torch.split(src_target, 100, dim=0), torch.split(src_neck, 100, dim=0), torch.split(src_low_feat,100, dim=0), src_size)
-        print("On source domain:", A, I, Im)
+        print("Test for source domain:")
+        print("{}: Acc:{}, IoU:{}, mIoU:{}".format(config.dataset, A, I, Im))
         tA, tI, tIm = [], [], []
         for dl in self.target_loader:
             t_target, t_neck, t_low_feat, t_size = self.get_neck_feat(dl)
@@ -252,8 +253,6 @@ class Test:
             tI.append(cur_I)
             tIm.append(cur_Im)
         res = {}
-        print("Test for source domain:")
-        print("{}: Acc:{}, IoU:{}, mIoU:{}".format(config.dataset, A, I, Im))
         res[config.dataset] = {'Acc':A, 'IoU':I, 'mIoU':Im}
         print('Test for target domain:')
         for i, city in enumerate(self.target):
