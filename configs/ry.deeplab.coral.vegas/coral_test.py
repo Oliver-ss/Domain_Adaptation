@@ -241,13 +241,13 @@ class Test:
         Measure performamce
         '''
         src_target, src_neck, src_low_feat, src_size = self.get_neck_feat(self.source_loader)
-        A, I, Im = self.neck_coral_performance(torch.split(src_target, 100, dim=0), torch.split(src_neck, 100, dim=0), torch.split(src_low_feat,100, dim=0), src_size)
+        A, I, Im = self.neck_coral_performance(torch.split(src_target, 50, dim=0), torch.split(src_neck, 50, dim=0), torch.split(src_low_feat,50, dim=0), src_size)
         print("On source domain:", A, I, Im)
         tA, tI, tIm = [], [], []
         for dl in self.target_loader:
             t_target, t_neck, t_low_feat, t_size = self.get_neck_feat(dl)
             t_neck = neck_coral(src_neck, t_neck)
-            curA, cur_I, cur_Im = self.neck_coral_performance(torch.split(t_target,100,dim=0), torch.split(t_neck,100,dim=0), torch.split(t_low_feat,100,dim=0), t_size)
+            curA, cur_I, cur_Im = self.neck_coral_performance(torch.split(t_target,50,dim=0), torch.split(t_neck,50,dim=0), torch.split(t_low_feat,50,dim=0), t_size)
             tA.append(cur_A)
             tI.append(cur_I)
             tIm.append(cur_Im)
