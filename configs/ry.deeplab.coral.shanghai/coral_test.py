@@ -245,6 +245,7 @@ class Test:
             t_target, t_neck, t_low_feat, t_size = self.get_neck_feat(dl)
             t_neck = neck_coral(src_neck, t_neck)
             curA, cur_I, cur_Im = self.neck_coral_performance(torch.split(t_target,100,dim=0), torch.split(t_neck,100,dim=0), torch.split(t_low_feat,100,dim=0), t_size)
+            print("\n", cur_A, cur_I, cur_Im, "\n")
             tA.append(cur_A)
             tI.append(cur_I)
             tIm.append(cur_Im)

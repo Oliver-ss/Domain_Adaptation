@@ -10,7 +10,7 @@ class Config:
     out_stride = 8 #network output stride
 
     #Data
-    all_dataset = ['Shanghai', 'Vegas', 'Paris', 'Khartoum']
+    all_dataset = ['Shanghai', 'Vegas']
     dataset = 'Shanghai'
     train_num_workers = 4
     val_num_workers = 2
