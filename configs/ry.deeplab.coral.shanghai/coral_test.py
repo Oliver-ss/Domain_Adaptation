@@ -34,10 +34,10 @@ def neck_coral(src_feat, tar_feat):
     :param tar_feat: target domain bottle neck features
     :return: Transformed target doamin feature
     '''
-    ret = torch.Tensor(src_feat.shape)
+    ret = torch.Tensor(tar_feat.shape)
     src_layers = []
     layer_sh = src_feat[0][0].shape
-    for _ in range(len(src_feat[0])):
+    for _ in range(len(tar_feat[0])):
         src_layers.append([])
     for feat in src_feat:
         for i in range(len(feat)):
@@ -56,13 +56,9 @@ def neck_coral(src_feat, tar_feat):
     for Xs, Xt in zip(src_layers, tar_layers):
         Xt_t = torch.tensor(CORAL(Xt.data.cpu().numpy(), Xs.data.cpu().numpy()))
         trans_layer.append(Xt_t)
-    for i in range(len(trans_layer)):
-        for j in range(len(trans_layer[i])):
+    for i in range(len(ret[0])):
+        for j in range(len(ret)):
             ret[j][i] = trans_layer[i][j].reshape(50,50)
-    for i in range(len(ret)):
-        for j in range(len(ret[i])):
-            ret[i][j] = torch.stack(ret[i][j])
-        ret[i] = torch.stack(ret[i])
     return ret
 
 class Test:
