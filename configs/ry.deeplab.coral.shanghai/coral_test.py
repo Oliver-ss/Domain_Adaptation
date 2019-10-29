@@ -12,7 +12,6 @@ from common import config
 from torch.utils.data import DataLoader
 import numpy as np
 import cv2
-from scipy.linalg import fractional_matrix_power
 
 def CORAL(Xs, Xt):
     '''
@@ -21,9 +20,11 @@ def CORAL(Xs, Xt):
     :param Xt: target feature
     :return: Transformed source domain feature
     '''
-    cov_s = np.cov(Xs.T) + np.eye(Xs.shape[1])
-    cov_t = np.cov(Xt.T) + np.eye(Xt.shape[1])
-    A = np.dot(fractional_matrix_power(cov_s, -0.5), fractional_matrix_power(cov_t, -0.5))
+    cov_s = np.dot((Xs - Xs.mean()).T, (Xs - Xs.mean()))
+    cov_t = np.dot((Xt - Xt.mean()).T, (Xt - Xt.mean()))
+    cov_s = cov_s.astype('complex')
+    cov_t = cov_t.astype('complex')
+    A = np.dot(cov_s**(-0.5), cov_t**(-0.5))
     Xs_t = np.dot(Xs, A)
     return Xs_t.real
 
