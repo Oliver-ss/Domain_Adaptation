@@ -1,0 +1,16 @@
+Found 646 test images
+Found 713 test images
+Found 2137 train images
+Found 120 test images
+Found 360 train images
+Found 180 test images
+Found 536 train images
+Test for source domain:
+Shanghai: Acc:0.8117476260706799, IoU:0.6547525871001126, mIoU:0.7762352866230946
+BN Adaptation onVegas
+BN Adaptation onParis
+BN Adaptation onKhartoum
+Test for target domain:
+Vegas: Acc:0.3714754209644309, IoU:0.20803021062015487, mIoU:0.4160016171435451
+Paris: Acc:0.615416931542053, IoU:0.20942736381385568, mIoU:0.38511314689764764
+Khartoum: Acc:0.5322776380222907, IoU:0.27365639483616017, mIoU:0.444139939152016

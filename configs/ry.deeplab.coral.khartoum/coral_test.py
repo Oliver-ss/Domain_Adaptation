@@ -266,10 +266,10 @@ class Test:
             print("{}: Acc:{}, IoU:{}, mIoU:{}".format(city, tA[i], tI[i], tIm[i]))
             res[city] = {'Acc': tA[i], 'IoU': tI[i], 'mIoU': tIm[i]}
         if self.bn:
-            with open('~/Domain_Adaptation/configs/ry.deeplab.coral.shanghai/train log/test_bn.json', 'w') as f:
+            with open('~/Domain_Adaptation/configs/ry.deeplab.coral.khartoum/train log/test_bn.json', 'w') as f:
                 json.dump(res, f)
         else:
-            with open('~/Domain_Adaptation/configs/ry.deeplab.coral.shanghai/train log/test.json', 'w') as f:
+            with open('~/Domain_Adaptation/configs/ry.deeplab.coral.khartoum/train log/test.json', 'w') as f:
                 json.dump(res, f)
 
     def save_images(self, imgs, batch_index, save_path, if_original=False):
