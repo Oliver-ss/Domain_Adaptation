@@ -1,3 +1,4 @@
 exp,Shanghai,boost_Shanghai,Vegas,boost_Vegas,Paris,boost_Paris,Khartoum,boost_Khartoum,avg_boost
 xh.deeplab.mobilenet.vegas,0.16,0,0.77,0,0.45,0,0.07,0,0.0
 xh.deeplab.mobilenet.vegas.test_bn,0.44,0,0.77,0,0.54,0,0.42,0,0.0
+ry.deeplab.coral.vegas,0.21,-0.52,0.77,0.0,0.2,-0.63,0.25,-0.4,-0.39
