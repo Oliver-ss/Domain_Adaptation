@@ -194,16 +194,6 @@ class Test:
         Get the features before the decoder
         So that they could be transformed
         '''
-        if self.bn and city!=self.config.dataset:
-            print('BN Adaptation on'+city)
-            self.model.train()
-            for sample in trainloader:
-                image, target = sample['image'], sample['label']
-                if self.cuda:
-                    image, target = image.cuda(), target.cuda()
-                with torch.no_grad():
-                    output = self.model(image)
-
         data_neck = torch.Tensor()
         data_low_feat = torch.Tensor()
         data_target = torch.Tensor()
@@ -224,10 +214,20 @@ class Test:
                 data_low_feat = torch.cat((data_low_feat, low_level_feat))
         return data_target, data_neck, data_low_feat, size
 
-    def neck_coral_performance(self, data_target, data_neck, data_low_feat, size):
+    def neck_coral_performance(self, data_target, data_neck, data_low_feat, size, dataloader, trainloader, city):
         '''
         Performamce with CORAL transformed bottle-neck features
         '''
+        if self.bn and city!=self.config.dataset:
+            print('BN Adaptation on '+city)
+            self.model.train()
+            for sample in trainloader:
+                image, target = sample['image'], sample['label']
+                if self.cuda:
+                    image, target = image.cuda(), target.cuda()
+                with torch.no_grad():
+                    output = self.model(image)
+
         for target, neck_feat, low_feat in zip(data_target, data_neck, data_low_feat):
             if self.cuda:
                 target, neck_feat, low_feat = target.cuda(), neck_feat.cuda(), low_feat.cuda()
@@ -248,14 +248,14 @@ class Test:
         Measure performamce
         '''
         src_target, src_neck, src_low_feat, src_size = self.get_neck_feat(self.source_loader, None, self.config.dataset)
-        A, I, Im = self.neck_coral_performance(torch.split(src_target, 100, dim=0), torch.split(src_neck, 100, dim=0), torch.split(src_low_feat,100, dim=0), src_size)
+        A, I, Im = self.neck_coral_performance(torch.split(src_target, 100, dim=0), torch.split(src_neck, 100, dim=0), torch.split(src_low_feat,100, dim=0), src_size, self.source_loader, None, self.config.dataset)
         print("Test for source domain:")
         print("{}: Acc:{}, IoU:{}, mIoU:{}".format(config.dataset, A, I, Im))
         tA, tI, tIm = [], [], []
         for dl, tl, city in zip(self.target_loader, self.target_trainloader, self.target):
             t_target, t_neck, t_low_feat, t_size = self.get_neck_feat(dl, tl, city)
             t_neck = neck_coral(src_neck, t_neck)
-            cur_A, cur_I, cur_Im = self.neck_coral_performance(torch.split(t_target,100,dim=0), torch.split(t_neck,100,dim=0), torch.split(t_low_feat,100,dim=0), t_size)
+            cur_A, cur_I, cur_Im = self.neck_coral_performance(torch.split(t_target,100,dim=0), torch.split(t_neck,100,dim=0), torch.split(t_low_feat,100,dim=0), t_size, dl, tl, city)
             tA.append(cur_A)
             tI.append(cur_I)
             tIm.append(cur_Im)
@@ -266,10 +266,10 @@ class Test:
             print("{}: Acc:{}, IoU:{}, mIoU:{}".format(city, tA[i], tI[i], tIm[i]))
             res[city] = {'Acc': tA[i], 'IoU': tI[i], 'mIoU': tIm[i]}
         if self.bn:
-            with open('~/Domain_Adaptation/configs/ry.deeplab.coral.vegas/train log/test_bn.json', 'w') as f:
+            with open('./train log/test_bn.json', 'w') as f:
                 json.dump(res, f)
         else:
-            with open('~/Domain_Adaptation/configs/ry.deeplab.coral.vegas/train log/test.json', 'w') as f:
+            with open('./train log/test.json', 'w') as f:
                 json.dump(res, f)
 
     def save_images(self, imgs, batch_index, save_path, if_original=False):

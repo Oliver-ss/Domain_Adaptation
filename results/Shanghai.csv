@@ -2,3 +2,4 @@ exp,Shanghai,boost_Shanghai,Vegas,boost_Vegas,Paris,boost_Paris,Khartoum,boost_K
 xh.deeplab.mobilenet.shanghai,0.66,0,0.45,0,0.36,0,0.39,0,0.0
 xh.deeplab.mobilenet.shanghai.test_bn,0.66,0,0.51,0,0.41,0,0.38,0,0.0
 ry.deeplab.coral.shanghai,0.66,0.0,0.2,-0.61,0.21,-0.49,0.27,-0.29,-0.35
+ry.deeplab.coral.bn2.shanghai,0.66,0.0,0.15,-0.71,0.13,-0.68,0.12,-0.68,-0.52
