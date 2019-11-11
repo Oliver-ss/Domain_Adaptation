@@ -142,6 +142,7 @@ class Trainer(object):
 
     def validation(self, epoch):
         def get_metrics(tbar, if_source=False):
+            self.evaluator.reset()
             test_loss = 0.0
             for i, sample in enumerate(tbar):
                 image, target = sample['image'], sample['label']
@@ -194,7 +195,7 @@ class Trainer(object):
             return Acc, IoU, mIoU
 
         self.model.eval()
-        self.evaluator.reset()
+        #self.evaluator.reset()
         tbar_source = tqdm(self.val_loader, desc='\r')
         tbar_target = tqdm(self.target_val_loader, desc='\r')
         s_acc, s_iou, s_miou = get_metrics(tbar_source, True)
