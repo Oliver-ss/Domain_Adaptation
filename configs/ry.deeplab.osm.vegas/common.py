@@ -6,14 +6,14 @@
  ************************************************************************'''
 class Config:
     #Model
-    backbone = 'resnet' #backbone name ['resnet', 'xception', 'drn', 'mobilenet']
+    backbone = 'mobilenet' #backbone name ['resnet', 'xception', 'drn', 'mobilenet']
     out_stride = 8 #network output stride
 
     #Data
     dataset = 'Vegas'
     train_num_workers = 4
     val_num_workers = 2
-    img_root = '/usr/xtmp/satellite/spacenet/'
+    img_root = '/usr/xtmp/satellite/spacenet_new/AOI_2_Vegas/'
     #Train
     batch_size = 16
     freeze_bn = False

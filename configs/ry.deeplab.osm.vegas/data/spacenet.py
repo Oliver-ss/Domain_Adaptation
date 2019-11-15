@@ -17,7 +17,7 @@ from PIL import Image
 class Spacenet(data.Dataset):
     NUM_CLASSES = 2
 
-    def __init__(self, city='Shanghai', split='train', img_root='/usr/xtmp/satellite/spacenet/'):
+    def __init__(self, city='Shanghai', split='train', img_root='/usr/xtmp/satellite/spacenet_new/AOI_2_Vegas/'):
         self.img_root = img_root
         self.name_root = '../../dataset/spacenet/domains/' + city
         with open(os.path.join(self.name_root, split + '.json')) as f:
@@ -37,9 +37,10 @@ class Spacenet(data.Dataset):
 
     def __getitem__(self, index):
         #img = cv2.imread(os.path.join(self.img_root, self.files[index] + '_RGB.tif'))
-        img = Image.open(os.path.join(self.img_root, self.files[index] + '_RGB.tif')).convert('RGB')
+        img = Image.open(os.path.join(self.img_root, 'RGB-JPEG/'+self.files[index] + '_RGB.jpg')).convert('RGB')
+        nat = Image.open(os.path.join(self.img_root, 'natural/'+self.files[index]+'_nat.tif'))
         #target = cv2.imread(os.path.join(self.img_root, self.files[index] + '_GT.tif'))
-        target = Image.open(os.path.join(self.img_root, self.files[index] + '_GT.tif'))
+        target = Image.open(os.path.join(self.img_root, 'Building_GT/'+self.files[index] + '_GT.tif'))
         sample = {'image': img, 'label': target}
         if self.split == 'train':
             return self.transform_tr(sample)

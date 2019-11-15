@@ -1,7 +1,6 @@
 import torch
 import torch.nn.functional as F
 import torch.nn as nn
-import math
 from model.sync_batchnorm.batchnorm import SynchronizedBatchNorm2d
 import torch.utils.model_zoo as model_zoo
 
@@ -144,7 +143,7 @@ class MobileNetV2(nn.Module):
                 m.bias.data.zero_()
 
 if __name__ == "__main__":
-    input = torch.rand(1, 3, 512, 512)
+    input = torch.rand(1, 3, 650, 650)
     model = MobileNetV2(output_stride=16, BatchNorm=nn.BatchNorm2d)
     output, low_level_feat = model(input)
     print(output.size())

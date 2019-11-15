@@ -12,6 +12,7 @@ from utils.loss import SegmentationLosses
 from utils.lr_scheduler import LR_Scheduler
 from utils.metrics import Evaluator
 import json
+import IPython
 
 class Trainer(object):
     def __init__(self, config, args):
@@ -176,6 +177,7 @@ def main():
     trainer = Trainer(config, args)
     print('Starting Epoch:', trainer.args.start_epoch)
     print('Total Epoches:', trainer.config.epochs)
+    print('Using backbone:', trainer.model.backbone)
     for epoch in range(trainer.args.start_epoch, trainer.config.epochs):
         trainer.training(epoch)
         #if not trainer.args.no_val and epoch % args.eval_interval == (args.eval_interval - 1):

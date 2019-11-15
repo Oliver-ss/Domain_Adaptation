@@ -1,0 +1,206 @@
+Using cuda device: 0
+Namespace(checkname=None, cuda=True, gpu='0', no_cuda=False, resume=None, save_folder='train_log/', seed=1, start_epoch=0)
+Found 2137 train images
+Found 712 val images
+Using poly LR Scheduler!
+Starting Epoch: 0
+Total Epoches: 80
+
+=>Epoches 0, learning rate = 0.0000,                 previous best = 0.0000
+[Epoch: 0, numImages:  2137]
+Loss: 5.137
+Validation:
+[Epoch: 0, numImages:   712]
+Acc:0.11999808642145009, IoU:0.09226497111358219, mIoU:0.42346207413861653
+Loss: 1.565
+Saving state, epoch: 0
+
+=>Epoches 1, learning rate = 0.0002,                 previous best = 0.4235
+[Epoch: 1, numImages:  2137]
+Loss: 4.246
+Validation:
+[Epoch: 1, numImages:   712]
+Acc:0.13848117711922872, IoU:0.11775912446837387, mIoU:0.4506619465710831
+Loss: 1.385
+Saving state, epoch: 1
+
+=>Epoches 2, learning rate = 0.0004,                 previous best = 0.4507
+[Epoch: 2, numImages:  2137]
+Loss: 3.842
+Validation:
+[Epoch: 2, numImages:   712]
+Acc:0.2548688776580396, IoU:0.20182958861854738, mIoU:0.49316484597634874
+Loss: 1.307
+Saving state, epoch: 2
+
+=>Epoches 3, learning rate = 0.0006,                 previous best = 0.4932
+[Epoch: 3, numImages:  2137]
+Loss: 3.576
+Validation:
+[Epoch: 3, numImages:   712]
+Acc:0.3106629402394181, IoU:0.24861219005497054, mIoU:0.5227204044554536
+Loss: 1.209
+Saving state, epoch: 3
+
+=>Epoches 4, learning rate = 0.0008,                 previous best = 0.5227
+[Epoch: 4, numImages:  2137]
+Loss: 3.366
+Validation:
+[Epoch: 4, numImages:   712]
+Acc:0.4874586789337731, IoU:0.3434377572402291, mIoU:0.5668835424126774
+Loss: 1.190
+Saving state, epoch: 4
+
+=>Epoches 5, learning rate = 0.0009,                 previous best = 0.5669
+[Epoch: 5, numImages:  2137]
+Loss: 3.185
+Validation:
+[Epoch: 5, numImages:   712]
+Acc:0.5011519786164091, IoU:0.3670489034796848, mIoU:0.5860035324363252
+Loss: 1.124
+Saving state, epoch: 5
+
+=>Epoches 6, learning rate = 0.0009,                 previous best = 0.5860
+[Epoch: 6, numImages:  2137]
+Loss: 3.019
+Validation:
+[Epoch: 6, numImages:   712]
+Acc:0.645501694188068, IoU:0.4091795605466989, mIoU:0.595870832507319
+Loss: 1.179
+Saving state, epoch: 6
+
+=>Epoches 7, learning rate = 0.0009,                 previous best = 0.5959
+[Epoch: 7, numImages:  2137]
+Loss: 2.956
+Validation:
+[Epoch: 7, numImages:   712]
+Acc:0.6502545124411829, IoU:0.425355787493074, mIoU:0.6100942440561001
+Loss: 1.120
+Saving state, epoch: 7
+
+=>Epoches 8, learning rate = 0.0009,                 previous best = 0.6101
+[Epoch: 8, numImages:  2137]
+Loss: 2.852
+Validation:
+[Epoch: 8, numImages:   712]
+Acc:0.6325413989947651, IoU:0.4351492350478585, mIoU:0.6220886365999483
+Loss: 1.063
+Saving state, epoch: 8
+
+=>Epoches 9, learning rate = 0.0009,                 previous best = 0.6221
+[Epoch: 9, numImages:  2137]
+Loss: 2.766
+Validation:
+[Epoch: 9, numImages:   712]
+Acc:0.6831806619466505, IoU:0.4493907956329582, mIoU:0.6261910239299732
+Loss: 1.076
+Saving state, epoch: 9
+
+=>Epoches 10, learning rate = 0.0009,                 previous best = 0.6262
+[Epoch: 10, numImages:  2137]
+Loss: 2.704
+Validation:
+[Epoch: 10, numImages:   712]
+Acc:0.6852394040458333, IoU:0.4580886296312911, mIoU:0.6336039212482902
+Loss: 1.047
+Saving state, epoch: 10
+
+=>Epoches 11, learning rate = 0.0009,                 previous best = 0.6336
+[Epoch: 11, numImages:  2137]
+Loss: 2.667
+Validation:
+[Epoch: 11, numImages:   712]
+Acc:0.6796747003052418, IoU:0.46687963630743484, mIoU:0.6421833018160809
+Loss: 1.013
+Saving state, epoch: 11
+
+=>Epoches 12, learning rate = 0.0009,                 previous best = 0.6422
+[Epoch: 12, numImages:  2137]
+Loss: 2.615
+Validation:
+[Epoch: 12, numImages:   712]
+Acc:0.6679213017009852, IoU:0.47029500087031245, mIoU:0.6469344750043451
+Loss: 0.983
+Saving state, epoch: 12
+
+=>Epoches 13, learning rate = 0.0009,                 previous best = 0.6469
+[Epoch: 13, numImages:  2137]
+Loss: 2.592
+Validation:
+[Epoch: 13, numImages:   712]
+Acc:0.7645694870375618, IoU:0.4747412861497766, mIoU:0.6358781878929496
+Loss: 1.078
+
+=>Epoches 14, learning rate = 0.0008,                 previous best = 0.6469
+[Epoch: 14, numImages:  2137]
+Loss: 2.535
+Validation:
+[Epoch: 14, numImages:   712]
+Acc:0.7316348519801533, IoU:0.48553975161552193, mIoU:0.6504907909747157
+Loss: 1.004
+Saving state, epoch: 14
+
+=>Epoches 15, learning rate = 0.0008,                 previous best = 0.6505
+[Epoch: 15, numImages:  2137]
+Loss: 2.524
+Validation:
+[Epoch: 15, numImages:   712]
+Acc:0.7295414749750899, IoU:0.49227133630123493, mIoU:0.6566110260427245
+Loss: 0.982
+Saving state, epoch: 15
+
+=>Epoches 16, learning rate = 0.0008,                 previous best = 0.6566
+[Epoch: 16, numImages:  2137]
+Loss: 2.487
+Validation:
+[Epoch: 16, numImages:   712]
+Acc:0.7082603168184722, IoU:0.49616793088042127, mIoU:0.6629462884184663
+Loss: 0.952
+Saving state, epoch: 16
+
+=>Epoches 17, learning rate = 0.0008,                 previous best = 0.6629
+[Epoch: 17, numImages:  2137]
+Loss: 2.476
+Validation:
+[Epoch: 17, numImages:   712]
+Acc:0.7188405445732838, IoU:0.5027864278091176, mIoU:0.6670300207822655
+Loss: 0.940
+Saving state, epoch: 17
+
+=>Epoches 18, learning rate = 0.0008,                 previous best = 0.6670
+[Epoch: 18, numImages:  2137]
+Loss: 2.417
+Validation:
+[Epoch: 18, numImages:   712]
+Acc:0.7612447525411739, IoU:0.5045543129815109, mIoU:0.6626650601499879
+Loss: 0.977
+
+=>Epoches 19, learning rate = 0.0008,                 previous best = 0.6670
+[Epoch: 19, numImages:  2137]
+Loss: 2.402
+Validation:
+[Epoch: 19, numImages:   712]
+Acc:0.7911106916439177, IoU:0.5015623024168538, mIoU:0.6558522357180718
+Loss: 1.013
+
+=>Epoches 20, learning rate = 0.0008,                 previous best = 0.6670
+[Epoch: 20, numImages:  2137]
+Loss: 2.379
+Validation:
+[Epoch: 20, numImages:   712]
+Acc:0.7655222500047082, IoU:0.5109636523994974, mIoU:0.6675575539104379
+Loss: 0.957
+Saving state, epoch: 20
+
+=>Epoches 21, learning rate = 0.0008,                 previous best = 0.6676
+[Epoch: 21, numImages:  2137]
+Loss: 2.361
+Validation:
+[Epoch: 21, numImages:   712]
+Acc:0.7676695275820484, IoU:0.5149975569725815, mIoU:0.670695371494106
+Loss: 0.945
+Saving state, epoch: 21
+
+=>Epoches 22, learning rate = 0.0007,                 previous best = 0.6707
+[Epoch: 22, numImages:  2137]
+Loss: 2.357

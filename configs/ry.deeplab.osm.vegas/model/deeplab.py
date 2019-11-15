@@ -7,7 +7,7 @@ from model.decoder import build_decoder
 from model.backbone import build_backbone
 
 class DeepLab(nn.Module):
-    def __init__(self, backbone='resnet', output_stride=16, num_classes=21,
+    def __init__(self, backbone='mobilenet', output_stride=16, num_classes=21,
                  sync_bn=True, freeze_bn=False):
         super(DeepLab, self).__init__()
         if backbone == 'drn':
