@@ -22,6 +22,10 @@ From **CVPR 2019**. Combine Segment Net and Context Net.
 
 Use context information to improve performance.
 
+----
+
 ## Xiaohan's Reading List
+
+----
 
 ## Yuan's Reading List
