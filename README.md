@@ -40,4 +40,24 @@ CVPR 2019
 
 ----
 
-## Yuan's Reading List
+## Song's Reading List
+
+### Demystifying Neural Style Transfer  [[pdf](https://arxiv.org/abs/1701.01036)]
+
+### Arbitrary Style Transfer in Real-time with Adaptive Instance Normalization  [[pdf](https://arxiv.org/abs/1703.06868)]
+
+### ADVENT: Adversarial Entropy Minimization for Domain Adaptation in Semantic Segmentation [[pdf (https://arxiv.org/pdf/1811.12833.pdf)]
+
+### DADA: Depth-aware Domain Adaptation in Semantic Segmentation [[pdf](https://arxiv.org/abs/1904.01886)]
+
+### Domain-invariant Learning using Adaptive Filter Decomposition  [[pdf](https://arxiv.org/abs/1909.11285)]
+
+### Drop to Adapt: Learning Discriminative Features for Unsupervised Domain Adaptation [[pdf](https://arxiv.org/abs/1910.05562)]
+
+### Larger Norm More Transferable: An Adaptive Feature Norm Approach for Unsupervised Domain Adaptation  [[pdf](https://arxiv.org/abs/1811.07456)]
+ICCV 2019 Best Paper nomination
+
+
+
+
+
