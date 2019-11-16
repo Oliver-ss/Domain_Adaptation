@@ -26,6 +26,18 @@ Use context information to improve performance.
 
 ## Xiaohan's Reading List
 
+### Unsupervised Domain Adaptation for Semantic Segmentation via Class-Balanced Self-Training  [[pdf](https://eccv2018.org/openaccess/content_ECCV_2018/papers/Yang_Zou_Unsupervised_Domain_Adaptation_ECCV_2018_paper.pdf)]
+ECCV 2018
+
+### Learning to Adapt Structured Output Space for Semantic Segmentation [[pdf](http://openaccess.thecvf.com/content_cvpr_2018/papers/Tsai_Learning_to_Adapt_CVPR_2018_paper.pdf)]
+CVPR 2018
+
+### Invariance Matters: Exemplar Memory for Domain Adaptive Person Re-identification [[pdf](https://zpascal.net/cvpr2019/Zhong_Invariance_Matters_Exemplar_Memory_for_Domain_Adaptive_Person_Re-Identification_CVPR_2019_paper.pdf)]
+CVPR 2019
+
+### ADVENT: Adversarial Entropy Minimization for Domain Adaptation in Semantic Segmentation [[pdf](https://arxiv.org/pdf/1811.12833.pdf)]
+CVPR 2019
+
 ----
 
 ## Yuan's Reading List
