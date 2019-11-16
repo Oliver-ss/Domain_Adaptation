@@ -46,7 +46,7 @@ CVPR 2019
 
 ### Arbitrary Style Transfer in Real-time with Adaptive Instance Normalization  [[pdf](https://arxiv.org/abs/1703.06868)]
 
-### ADVENT: Adversarial Entropy Minimization for Domain Adaptation in Semantic Segmentation [[pdf (https://arxiv.org/pdf/1811.12833.pdf)]
+### ADVENT: Adversarial Entropy Minimization for Domain Adaptation in Semantic Segmentation  [[pdf](https://arxiv.org/pdf/1811.12833.pdf)]
 
 ### DADA: Depth-aware Domain Adaptation in Semantic Segmentation [[pdf](https://arxiv.org/abs/1904.01886)]
 
