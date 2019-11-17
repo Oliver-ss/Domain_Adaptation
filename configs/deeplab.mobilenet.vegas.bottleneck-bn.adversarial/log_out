@@ -1,0 +1,10 @@
+Namespace(checkname=None, cuda=True, gpu='0', no_cuda=False, resume=None, save_folder='train_log/', seed=1, start_epoch=0, visdom=True)
+Exception in user code:
+------------------------------------------------------------
+Found 2137 train images
+Found 712 val images
+Found 1936 train images
+Found 645 val images
+Using poly LR Scheduler!
+Starting Epoch: 0
+Total Epoches: 100
