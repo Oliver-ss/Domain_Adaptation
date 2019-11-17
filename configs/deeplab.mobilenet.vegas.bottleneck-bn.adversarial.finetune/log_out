@@ -1,0 +1,1937 @@
+Create soft link!
+Namespace(checkname=None, cuda=True, gpu='0', no_cuda=False, resume='/usr/xtmp/satellite/train_models/xh.deeplab.mobilenet.vegas/epoch463.pth', save_folder='train_log/', seed=1, start_epoch=0, visdom=False)
+Found 2137 train images
+Found 712 val images
+Found 1936 train images
+Found 645 val images
+Using poly LR Scheduler!
+=> loaded checkpoint '/usr/xtmp/satellite/train_models/xh.deeplab.mobilenet.vegas/epoch463.pth' (epoch 0)
+Starting Epoch: 0
+Total Epoches: 100
+
+=>Epoches 0, learning rate = 0.0000,                 previous best_source = 0.0000
+
+=>Epoches 0, learning rate = 0.0000,                 previous best_target = 0.0000
+[Epoch: 0, numImages:  2128]
+Seg Loss: 1.248
+BN Loss: 0.000
+Adv Loss: 0.100
+Discriminator Loss: 89.367
+Validation on source:
+[Epoch: 0, numImages:   704]
+Acc:0.9045628134775457, IoU:0.734701909575027, mIoU:0.818027735551608
+Loss: 0.528
+Adv Loss: 0.734
+Validation on target:
+[Epoch: 0, numImages:   640]
+Acc:0.4555992109628447, IoU:0.37063915338948406, mIoU:0.6023858046632181
+Loss: 0.990
+Adv Loss: 1.006
+Saving state, epoch: 0
+
+=>Epoches 1, learning rate = 0.0001,                 previous best_source = 0.7347
+
+=>Epoches 1, learning rate = 0.0001,                 previous best_target = 0.0000
+[Epoch: 1, numImages:  2128]
+Seg Loss: 1.248
+BN Loss: 0.000
+Adv Loss: 0.125
+Discriminator Loss: 83.603
+Validation on source:
+[Epoch: 1, numImages:   704]
+Acc:0.9037763325068184, IoU:0.7238846823854771, mIoU:0.8098985814772398
+Loss: 0.557
+Adv Loss: 0.610
+Validation on target:
+[Epoch: 1, numImages:   640]
+Acc:0.4831916626927158, IoU:0.38967851463472075, mIoU:0.6132282894437568
+Loss: 0.964
+Adv Loss: 0.980
+Saving state, epoch: 1
+
+=>Epoches 2, learning rate = 0.0002,                 previous best_source = 0.7347
+
+=>Epoches 2, learning rate = 0.0002,                 previous best_target = 0.0000
+[Epoch: 2, numImages:  2128]
+Seg Loss: 1.257
+BN Loss: 0.000
+Adv Loss: 0.137
+Discriminator Loss: 81.434
+Validation on source:
+[Epoch: 2, numImages:   704]
+Acc:0.9040138786532544, IoU:0.7324732547732177, mIoU:0.8163862708835488
+Loss: 0.533
+Adv Loss: 0.542
+Validation on target:
+[Epoch: 2, numImages:   640]
+Acc:0.45310719627924206, IoU:0.37524300372247893, mIoU:0.6067924407362649
+Loss: 0.991
+Adv Loss: 1.023
+Saving state, epoch: 2
+
+=>Epoches 3, learning rate = 0.0003,                 previous best_source = 0.7347
+
+=>Epoches 3, learning rate = 0.0003,                 previous best_target = 0.0000
+[Epoch: 3, numImages:  2128]
+Seg Loss: 1.250
+BN Loss: 0.000
+Adv Loss: 0.141
+Discriminator Loss: 80.529
+Validation on source:
+[Epoch: 3, numImages:   704]
+Acc:0.9087176067354868, IoU:0.7267756890131137, mIoU:0.8117363481166253
+Loss: 0.546
+Adv Loss: 0.626
+Validation on target:
+[Epoch: 3, numImages:   640]
+Acc:0.42999380133658743, IoU:0.3608994245310509, mIoU:0.5992662544198321
+Loss: 1.029
+Adv Loss: 1.179
+
+=>Epoches 4, learning rate = 0.0004,                 previous best_source = 0.7347
+
+=>Epoches 4, learning rate = 0.0004,                 previous best_target = 0.0000
+[Epoch: 4, numImages:  2128]
+Seg Loss: 1.260
+BN Loss: 0.000
+Adv Loss: 0.145
+Discriminator Loss: 79.567
+Validation on source:
+[Epoch: 4, numImages:   704]
+Acc:0.9170921656966523, IoU:0.7155150035393516, mIoU:0.8024874576129033
+Loss: 0.586
+Adv Loss: 0.649
+Validation on target:
+[Epoch: 4, numImages:   640]
+Acc:0.481549201878338, IoU:0.3857762634679136, mIoU:0.6102358512878359
+Loss: 0.996
+Adv Loss: 1.358
+
+=>Epoches 5, learning rate = 0.0005,                 previous best_source = 0.7347
+
+=>Epoches 5, learning rate = 0.0005,                 previous best_target = 0.0000
+[Epoch: 5, numImages:  2128]
+Seg Loss: 1.238
+BN Loss: 0.000
+Adv Loss: 0.151
+Discriminator Loss: 77.992
+Validation on source:
+[Epoch: 5, numImages:   704]
+Acc:0.9179963530846698, IoU:0.7198690897483679, mIoU:0.8057714179243795
+Loss: 0.574
+Adv Loss: 0.714
+Validation on target:
+[Epoch: 5, numImages:   640]
+Acc:0.4611780580314489, IoU:0.3775995717728697, mIoU:0.6072116831726204
+Loss: 1.019
+Adv Loss: 1.621
+
+=>Epoches 6, learning rate = 0.0006,                 previous best_source = 0.7347
+
+=>Epoches 6, learning rate = 0.0006,                 previous best_target = 0.0000
+[Epoch: 6, numImages:  2128]
+Seg Loss: 1.254
+BN Loss: 0.000
+Adv Loss: 0.150
+Discriminator Loss: 77.258
+Validation on source:
+[Epoch: 6, numImages:   704]
+Acc:0.9096584721168094, IoU:0.7259196441494182, mIoU:0.8110169064284687
+Loss: 0.551
+Adv Loss: 0.609
+Validation on target:
+[Epoch: 6, numImages:   640]
+Acc:0.4904698674861955, IoU:0.3996220143521136, mIoU:0.6202231420842602
+Loss: 0.978
+Adv Loss: 1.299
+
+=>Epoches 7, learning rate = 0.0007,                 previous best_source = 0.7347
+
+=>Epoches 7, learning rate = 0.0007,                 previous best_target = 0.0000
+[Epoch: 7, numImages:  2128]
+Seg Loss: 1.250
+BN Loss: 0.000
+Adv Loss: 0.153
+Discriminator Loss: 75.776
+Validation on source:
+[Epoch: 7, numImages:   704]
+Acc:0.901301316489202, IoU:0.7358629737388395, mIoU:0.8191264665998483
+Loss: 0.518
+Adv Loss: 0.513
+Validation on target:
+[Epoch: 7, numImages:   640]
+Acc:0.41631629402523446, IoU:0.356663756997523, mIoU:0.5985030032849413
+Loss: 1.064
+Adv Loss: 0.858
+Saving state, epoch: 7
+
+=>Epoches 8, learning rate = 0.0007,                 previous best_source = 0.7359
+
+=>Epoches 8, learning rate = 0.0007,                 previous best_target = 0.0000
+[Epoch: 8, numImages:  2128]
+Seg Loss: 1.251
+BN Loss: 0.000
+Adv Loss: 0.155
+Discriminator Loss: 74.703
+Validation on source:
+[Epoch: 8, numImages:   704]
+Acc:0.9065571980767707, IoU:0.7288516059378568, mIoU:0.8134675506257121
+Loss: 0.543
+Adv Loss: 0.714
+Validation on target:
+[Epoch: 8, numImages:   640]
+Acc:0.4327772501953144, IoU:0.36916548104021235, mIoU:0.6056896520728847
+Loss: 1.021
+Adv Loss: 1.190
+
+=>Epoches 9, learning rate = 0.0008,                 previous best_source = 0.7359
+
+=>Epoches 9, learning rate = 0.0008,                 previous best_target = 0.0000
+[Epoch: 9, numImages:  2128]
+Seg Loss: 1.240
+BN Loss: 0.000
+Adv Loss: 0.157
+Discriminator Loss: 73.369
+Validation on source:
+[Epoch: 9, numImages:   704]
+Acc:0.9069827750786809, IoU:0.7292839729506035, mIoU:0.8137647414008269
+Loss: 0.540
+Adv Loss: 0.784
+Validation on target:
+[Epoch: 9, numImages:   640]
+Acc:0.48206497387191877, IoU:0.39251296075779435, mIoU:0.6158187201585772
+Loss: 0.987
+Adv Loss: 1.076
+
+=>Epoches 10, learning rate = 0.0009,                 previous best_source = 0.7359
+
+=>Epoches 10, learning rate = 0.0009,                 previous best_target = 0.0000
+[Epoch: 10, numImages:  2128]
+Seg Loss: 1.241
+BN Loss: 0.000
+Adv Loss: 0.164
+Discriminator Loss: 71.100
+Validation on source:
+[Epoch: 10, numImages:   704]
+Acc:0.89869309947345, IoU:0.7333652572021039, mIoU:0.8174301209060061
+Loss: 0.526
+Adv Loss: 0.554
+Validation on target:
+[Epoch: 10, numImages:   640]
+Acc:0.474997707624476, IoU:0.38925541049520795, mIoU:0.6143995975273604
+Loss: 0.996
+Adv Loss: 0.936
+
+=>Epoches 11, learning rate = 0.0009,                 previous best_source = 0.7359
+
+=>Epoches 11, learning rate = 0.0009,                 previous best_target = 0.0000
+[Epoch: 11, numImages:  2128]
+Seg Loss: 1.245
+BN Loss: 0.000
+Adv Loss: 0.172
+Discriminator Loss: 69.044
+Validation on source:
+[Epoch: 11, numImages:   704]
+Acc:0.8889121640281779, IoU:0.7385240247770648, mIoU:0.8219612842309563
+Loss: 0.506
+Adv Loss: 0.664
+Validation on target:
+[Epoch: 11, numImages:   640]
+Acc:0.43626306091579226, IoU:0.3635489942352861, mIoU:0.6002376790812272
+Loss: 1.039
+Adv Loss: 1.091
+Saving state, epoch: 11
+
+=>Epoches 12, learning rate = 0.0009,                 previous best_source = 0.7385
+
+=>Epoches 12, learning rate = 0.0009,                 previous best_target = 0.0000
+[Epoch: 12, numImages:  2128]
+Seg Loss: 1.245
+BN Loss: 0.000
+Adv Loss: 0.179
+Discriminator Loss: 67.960
+Validation on source:
+[Epoch: 12, numImages:   704]
+Acc:0.8984979575784575, IoU:0.7335758664837865, mIoU:0.817602035065981
+Loss: 0.528
+Adv Loss: 0.624
+Validation on target:
+[Epoch: 12, numImages:   640]
+Acc:0.4303438323299045, IoU:0.3675179859709128, mIoU:0.6047930342860888
+Loss: 1.028
+Adv Loss: 0.814
+
+=>Epoches 13, learning rate = 0.0009,                 previous best_source = 0.7385
+
+=>Epoches 13, learning rate = 0.0009,                 previous best_target = 0.0000
+[Epoch: 13, numImages:  2128]
+Seg Loss: 1.240
+BN Loss: 0.000
+Adv Loss: 0.183
+Discriminator Loss: 67.381
+Validation on source:
+[Epoch: 13, numImages:   704]
+Acc:0.8954342223417708, IoU:0.7385543043431769, mIoU:0.8215432636634199
+Loss: 0.512
+Adv Loss: 0.691
+Validation on target:
+[Epoch: 13, numImages:   640]
+Acc:0.433697250239312, IoU:0.3685952998576978, mIoU:0.6050274210018144
+Loss: 1.026
+Adv Loss: 0.908
+Saving state, epoch: 13
+
+=>Epoches 14, learning rate = 0.0009,                 previous best_source = 0.7386
+
+=>Epoches 14, learning rate = 0.0009,                 previous best_target = 0.0000
+[Epoch: 14, numImages:  2128]
+Seg Loss: 1.252
+BN Loss: 0.000
+Adv Loss: 0.183
+Discriminator Loss: 66.843
+Validation on source:
+[Epoch: 14, numImages:   704]
+Acc:0.8943938024071917, IoU:0.7373073526502949, mIoU:0.8206818634403094
+Loss: 0.514
+Adv Loss: 0.448
+Validation on target:
+[Epoch: 14, numImages:   640]
+Acc:0.4284142371069251, IoU:0.366264879170098, mIoU:0.604127822253403
+Loss: 1.011
+Adv Loss: 0.613
+
+=>Epoches 15, learning rate = 0.0009,                 previous best_source = 0.7386
+
+=>Epoches 15, learning rate = 0.0009,                 previous best_target = 0.0000
+[Epoch: 15, numImages:  2128]
+Seg Loss: 1.252
+BN Loss: 0.000
+Adv Loss: 0.188
+Discriminator Loss: 66.488
+Validation on source:
+[Epoch: 15, numImages:   704]
+Acc:0.8888078937329249, IoU:0.7423064483777476, mIoU:0.8247811605846713
+Loss: 0.496
+Adv Loss: 0.523
+Validation on target:
+[Epoch: 15, numImages:   640]
+Acc:0.3564203463751918, IoU:0.32099379922381105, mIoU:0.5813559050075127
+Loss: 1.101
+Adv Loss: 0.891
+Saving state, epoch: 15
+
+=>Epoches 16, learning rate = 0.0009,                 previous best_source = 0.7423
+
+=>Epoches 16, learning rate = 0.0009,                 previous best_target = 0.0000
+[Epoch: 16, numImages:  2128]
+Seg Loss: 1.246
+BN Loss: 0.000
+Adv Loss: 0.182
+Discriminator Loss: 66.408
+Validation on source:
+[Epoch: 16, numImages:   704]
+Acc:0.9058109131925839, IoU:0.7292376982084903, mIoU:0.8138134232097607
+Loss: 0.542
+Adv Loss: 0.606
+Validation on target:
+[Epoch: 16, numImages:   640]
+Acc:0.451958458655695, IoU:0.37982758960455143, mIoU:0.6108667551278273
+Loss: 0.994
+Adv Loss: 0.888
+
+=>Epoches 17, learning rate = 0.0008,                 previous best_source = 0.7423
+
+=>Epoches 17, learning rate = 0.0008,                 previous best_target = 0.0000
+[Epoch: 17, numImages:  2128]
+Seg Loss: 1.255
+BN Loss: 0.000
+Adv Loss: 0.188
+Discriminator Loss: 65.649
+Validation on source:
+[Epoch: 17, numImages:   704]
+Acc:0.9037113226350114, IoU:0.7327104223981389, mIoU:0.8165863801452953
+Loss: 0.533
+Adv Loss: 0.496
+Validation on target:
+[Epoch: 17, numImages:   640]
+Acc:0.44151107594857597, IoU:0.3766301502323662, mIoU:0.6102130098223093
+Loss: 0.981
+Adv Loss: 0.760
+
+=>Epoches 18, learning rate = 0.0008,                 previous best_source = 0.7423
+
+=>Epoches 18, learning rate = 0.0008,                 previous best_target = 0.0000
+[Epoch: 18, numImages:  2128]
+Seg Loss: 1.244
+BN Loss: 0.000
+Adv Loss: 0.185
+Discriminator Loss: 65.628
+Validation on source:
+[Epoch: 18, numImages:   704]
+Acc:0.8976694466215246, IoU:0.7385330125130799, mIoU:0.8213759453999139
+Loss: 0.513
+Adv Loss: 0.643
+Validation on target:
+[Epoch: 18, numImages:   640]
+Acc:0.42860327684206745, IoU:0.36469740987709753, mIoU:0.6027699730428818
+Loss: 1.030
+Adv Loss: 0.817
+
+=>Epoches 19, learning rate = 0.0008,                 previous best_source = 0.7423
+
+=>Epoches 19, learning rate = 0.0008,                 previous best_target = 0.0000
+[Epoch: 19, numImages:  2128]
+Seg Loss: 1.246
+BN Loss: 0.000
+Adv Loss: 0.192
+Discriminator Loss: 64.527
+Validation on source:
+[Epoch: 19, numImages:   704]
+Acc:0.9010287391165073, IoU:0.7367970228687195, mIoU:0.8198464110180752
+Loss: 0.523
+Adv Loss: 0.460
+Validation on target:
+[Epoch: 19, numImages:   640]
+Acc:0.43360545522378136, IoU:0.36918961148116525, mIoU:0.6055449609886413
+Loss: 1.012
+Adv Loss: 0.710
+
+=>Epoches 20, learning rate = 0.0008,                 previous best_source = 0.7423
+
+=>Epoches 20, learning rate = 0.0008,                 previous best_target = 0.0000
+[Epoch: 20, numImages:  2128]
+Seg Loss: 1.247
+BN Loss: 0.000
+Adv Loss: 0.195
+Discriminator Loss: 63.755
+Validation on source:
+[Epoch: 20, numImages:   704]
+Acc:0.9020938979833054, IoU:0.7333722813032493, mIoU:0.8171982918740253
+Loss: 0.527
+Adv Loss: 0.514
+Validation on target:
+[Epoch: 20, numImages:   640]
+Acc:0.47154694500088645, IoU:0.3904246587228231, mIoU:0.6160164445251322
+Loss: 0.983
+Adv Loss: 0.794
+
+=>Epoches 21, learning rate = 0.0008,                 previous best_source = 0.7423
+
+=>Epoches 21, learning rate = 0.0008,                 previous best_target = 0.0000
+[Epoch: 21, numImages:  2128]
+Seg Loss: 1.250
+BN Loss: 0.000
+Adv Loss: 0.199
+Discriminator Loss: 62.594
+Validation on source:
+[Epoch: 21, numImages:   704]
+Acc:0.882916360065465, IoU:0.7481468422488761, mIoU:0.8294831697490798
+Loss: 0.480
+Adv Loss: 0.660
+Validation on target:
+[Epoch: 21, numImages:   640]
+Acc:0.3815986791917199, IoU:0.33847592200176335, mIoU:0.5905354872063536
+Loss: 1.097
+Adv Loss: 0.731
+Saving state, epoch: 21
+
+=>Epoches 22, learning rate = 0.0008,                 previous best_source = 0.7481
+
+=>Epoches 22, learning rate = 0.0008,                 previous best_target = 0.0000
+[Epoch: 22, numImages:  2128]
+Seg Loss: 1.258
+BN Loss: 0.000
+Adv Loss: 0.202
+Discriminator Loss: 63.005
+Validation on source:
+[Epoch: 22, numImages:   704]
+Acc:0.8887963663636004, IoU:0.7433282753043503, mIoU:0.8255402035172322
+Loss: 0.498
+Adv Loss: 0.645
+Validation on target:
+[Epoch: 22, numImages:   640]
+Acc:0.41597406260840036, IoU:0.3605145745690105, mIoU:0.6018240682690468
+Loss: 1.033
+Adv Loss: 0.697
+
+=>Epoches 23, learning rate = 0.0008,                 previous best_source = 0.7481
+
+=>Epoches 23, learning rate = 0.0008,                 previous best_target = 0.0000
+[Epoch: 23, numImages:  2128]
+Seg Loss: 1.256
+BN Loss: 0.000
+Adv Loss: 0.198
+Discriminator Loss: 62.594
+Validation on source:
+[Epoch: 23, numImages:   704]
+Acc:0.8980568111426546, IoU:0.7397278631510681, mIoU:0.8222431251984248
+Loss: 0.514
+Adv Loss: 0.494
+Validation on target:
+[Epoch: 23, numImages:   640]
+Acc:0.4330496354047975, IoU:0.3737494829988891, mIoU:0.609462332129326
+Loss: 1.004
+Adv Loss: 0.818
+
+=>Epoches 24, learning rate = 0.0008,                 previous best_source = 0.7481
+
+=>Epoches 24, learning rate = 0.0008,                 previous best_target = 0.0000
+[Epoch: 24, numImages:  2128]
+Seg Loss: 1.247
+BN Loss: 0.000
+Adv Loss: 0.202
+Discriminator Loss: 62.461
+Validation on source:
+[Epoch: 24, numImages:   704]
+Acc:0.8934729602160918, IoU:0.7403895090421742, mIoU:0.823044830053987
+Loss: 0.503
+Adv Loss: 0.580
+Validation on target:
+[Epoch: 24, numImages:   640]
+Acc:0.4260134174714313, IoU:0.36564350482316216, mIoU:0.6040894979028674
+Loss: 1.029
+Adv Loss: 0.904
+
+=>Epoches 25, learning rate = 0.0008,                 previous best_source = 0.7481
+
+=>Epoches 25, learning rate = 0.0008,                 previous best_target = 0.0000
+[Epoch: 25, numImages:  2128]
+Seg Loss: 1.242
+BN Loss: 0.000
+Adv Loss: 0.205
+Discriminator Loss: 61.559
+Validation on source:
+[Epoch: 25, numImages:   704]
+Acc:0.8923667444527061, IoU:0.7394122173825335, mIoU:0.8223905658266539
+Loss: 0.513
+Adv Loss: 0.493
+Validation on target:
+[Epoch: 25, numImages:   640]
+Acc:0.4906869057010204, IoU:0.40529916294034235, mIoU:0.6248805226987054
+Loss: 0.947
+Adv Loss: 0.820
+Saving state, epoch: 25
+
+=>Epoches 26, learning rate = 0.0008,                 previous best_source = 0.7481
+
+=>Epoches 26, learning rate = 0.0008,                 previous best_target = 0.0000
+[Epoch: 26, numImages:  2128]
+Seg Loss: 1.256
+BN Loss: 0.000
+Adv Loss: 0.204
+Discriminator Loss: 62.135
+Validation on source:
+[Epoch: 26, numImages:   704]
+Acc:0.8934937693633138, IoU:0.7370476257897669, mIoU:0.8205489879145809
+Loss: 0.517
+Adv Loss: 0.641
+Validation on target:
+[Epoch: 26, numImages:   640]
+Acc:0.45146073568205247, IoU:0.38446089434486386, mIoU:0.6148130951120149
+Loss: 0.985
+Adv Loss: 1.016
+
+=>Epoches 27, learning rate = 0.0008,                 previous best_source = 0.7481
+
+=>Epoches 27, learning rate = 0.0008,                 previous best_target = 0.0000
+[Epoch: 27, numImages:  2128]
+Seg Loss: 1.245
+BN Loss: 0.000
+Adv Loss: 0.207
+Discriminator Loss: 61.203
+Validation on source:
+[Epoch: 27, numImages:   704]
+Acc:0.8931158737527003, IoU:0.7404427735573785, mIoU:0.8231084298153739
+Loss: 0.506
+Adv Loss: 0.569
+Validation on target:
+[Epoch: 27, numImages:   640]
+Acc:0.469359563775687, IoU:0.3909388824547013, mIoU:0.6168480214944614
+Loss: 0.971
+Adv Loss: 0.885
+Saving state, epoch: 27
+
+=>Epoches 28, learning rate = 0.0007,                 previous best_source = 0.7481
+
+=>Epoches 28, learning rate = 0.0007,                 previous best_target = 0.0000
+[Epoch: 28, numImages:  2128]
+Seg Loss: 1.239
+BN Loss: 0.000
+Adv Loss: 0.213
+Discriminator Loss: 60.067
+Validation on source:
+[Epoch: 28, numImages:   704]
+Acc:0.9025527471648566, IoU:0.7390194870829312, mIoU:0.8214090930516519
+Loss: 0.511
+Adv Loss: 0.473
+Validation on target:
+[Epoch: 28, numImages:   640]
+Acc:0.4345108060632308, IoU:0.36731650759612955, mIoU:0.60378755748989
+Loss: 1.060
+Adv Loss: 0.839
+
+=>Epoches 29, learning rate = 0.0007,                 previous best_source = 0.7481
+
+=>Epoches 29, learning rate = 0.0007,                 previous best_target = 0.0000
+[Epoch: 29, numImages:  2128]
+Seg Loss: 1.238
+BN Loss: 0.000
+Adv Loss: 0.211
+Discriminator Loss: 60.822
+Validation on source:
+[Epoch: 29, numImages:   704]
+Acc:0.899866982391831, IoU:0.7384438833566699, mIoU:0.8211601499834837
+Loss: 0.510
+Adv Loss: 0.464
+Validation on target:
+[Epoch: 29, numImages:   640]
+Acc:0.41830298614785216, IoU:0.36051382862201387, mIoU:0.6013452434196396
+Loss: 1.054
+Adv Loss: 0.887
+
+=>Epoches 30, learning rate = 0.0007,                 previous best_source = 0.7481
+
+=>Epoches 30, learning rate = 0.0007,                 previous best_target = 0.0000
+[Epoch: 30, numImages:  2128]
+Seg Loss: 1.243
+BN Loss: 0.000
+Adv Loss: 0.209
+Discriminator Loss: 61.041
+Validation on source:
+[Epoch: 30, numImages:   704]
+Acc:0.8787132117387992, IoU:0.7498377499944349, mIoU:0.8309936423481339
+Loss: 0.472
+Adv Loss: 0.363
+Validation on target:
+[Epoch: 30, numImages:   640]
+Acc:0.396402225359163, IoU:0.3487077343650148, mIoU:0.5959796745355697
+Loss: 1.065
+Adv Loss: 0.823
+Saving state, epoch: 30
+
+=>Epoches 31, learning rate = 0.0007,                 previous best_source = 0.7498
+
+=>Epoches 31, learning rate = 0.0007,                 previous best_target = 0.0000
+[Epoch: 31, numImages:  2128]
+Seg Loss: 1.242
+BN Loss: 0.000
+Adv Loss: 0.211
+Discriminator Loss: 60.410
+Validation on source:
+[Epoch: 31, numImages:   704]
+Acc:0.8912328330617229, IoU:0.7440315373899573, mIoU:0.8259019421910883
+Loss: 0.494
+Adv Loss: 0.358
+Validation on target:
+[Epoch: 31, numImages:   640]
+Acc:0.41416581079647374, IoU:0.3592973170827235, mIoU:0.6011728400125413
+Loss: 1.054
+Adv Loss: 0.772
+Saving state, epoch: 31
+
+=>Epoches 32, learning rate = 0.0007,                 previous best_source = 0.7498
+
+=>Epoches 32, learning rate = 0.0007,                 previous best_target = 0.0000
+[Epoch: 32, numImages:  2128]
+Seg Loss: 1.251
+BN Loss: 0.000
+Adv Loss: 0.215
+Discriminator Loss: 59.488
+Validation on source:
+[Epoch: 32, numImages:   704]
+Acc:0.8929774330412356, IoU:0.7397016854001381, mIoU:0.8225653340402245
+Loss: 0.503
+Adv Loss: 0.604
+Validation on target:
+[Epoch: 32, numImages:   640]
+Acc:0.43831799933263627, IoU:0.3776286321860192, mIoU:0.6116586407812151
+Loss: 0.999
+Adv Loss: 0.907
+Saving state, epoch: 32
+
+=>Epoches 33, learning rate = 0.0007,                 previous best_source = 0.7498
+
+=>Epoches 33, learning rate = 0.0007,                 previous best_target = 0.0000
+[Epoch: 33, numImages:  2128]
+Seg Loss: 1.249
+BN Loss: 0.000
+Adv Loss: 0.217
+Discriminator Loss: 59.495
+Validation on source:
+[Epoch: 33, numImages:   704]
+Acc:0.9009630181407483, IoU:0.7366433173975668, mIoU:0.8197355756778458
+Loss: 0.515
+Adv Loss: 0.570
+Validation on target:
+[Epoch: 33, numImages:   640]
+Acc:0.4480393214648445, IoU:0.37886857165953247, mIoU:0.6108188686912173
+Loss: 1.019
+Adv Loss: 0.871
+
+=>Epoches 34, learning rate = 0.0007,                 previous best_source = 0.7498
+
+=>Epoches 34, learning rate = 0.0007,                 previous best_target = 0.0000
+[Epoch: 34, numImages:  2128]
+Seg Loss: 1.263
+BN Loss: 0.000
+Adv Loss: 0.219
+Discriminator Loss: 59.633
+Validation on source:
+[Epoch: 34, numImages:   704]
+Acc:0.9071381700054182, IoU:0.7304338774776729, mIoU:0.8146245142869356
+Loss: 0.532
+Adv Loss: 0.546
+Validation on target:
+[Epoch: 34, numImages:   640]
+Acc:0.4393643925134865, IoU:0.37304635730102825, mIoU:0.6076392645980401
+Loss: 1.019
+Adv Loss: 0.762
+
+=>Epoches 35, learning rate = 0.0007,                 previous best_source = 0.7498
+
+=>Epoches 35, learning rate = 0.0007,                 previous best_target = 0.0000
+[Epoch: 35, numImages:  2128]
+Seg Loss: 1.239
+BN Loss: 0.000
+Adv Loss: 0.216
+Discriminator Loss: 59.336
+Validation on source:
+[Epoch: 35, numImages:   704]
+Acc:0.906799123126489, IoU:0.7294064269202363, mIoU:0.8138706364127961
+Loss: 0.542
+Adv Loss: 0.370
+Validation on target:
+[Epoch: 35, numImages:   640]
+Acc:0.45891403096811845, IoU:0.39045604441275383, mIoU:0.618372866018281
+Loss: 0.998
+Adv Loss: 0.675
+Saving state, epoch: 35
+
+=>Epoches 36, learning rate = 0.0007,                 previous best_source = 0.7498
+
+=>Epoches 36, learning rate = 0.0007,                 previous best_target = 0.0000
+[Epoch: 36, numImages:  2128]
+Seg Loss: 1.263
+BN Loss: 0.000
+Adv Loss: 0.218
+Discriminator Loss: 59.602
+Validation on source:
+[Epoch: 36, numImages:   704]
+Acc:0.8961882170898565, IoU:0.7375039230947158, mIoU:0.8207067169200841
+Loss: 0.508
+Adv Loss: 0.534
+Validation on target:
+[Epoch: 36, numImages:   640]
+Acc:0.4600322202504404, IoU:0.38671030177851595, mIoU:0.6150696781577043
+Loss: 0.981
+Adv Loss: 0.844
+
+=>Epoches 37, learning rate = 0.0007,                 previous best_source = 0.7498
+
+=>Epoches 37, learning rate = 0.0007,                 previous best_target = 0.0000
+[Epoch: 37, numImages:  2128]
+Seg Loss: 1.231
+BN Loss: 0.000
+Adv Loss: 0.219
+Discriminator Loss: 59.238
+Validation on source:
+[Epoch: 37, numImages:   704]
+Acc:0.8938820321210146, IoU:0.7425843625503799, mIoU:0.8246519797950682
+Loss: 0.493
+Adv Loss: 0.396
+Validation on target:
+[Epoch: 37, numImages:   640]
+Acc:0.44099770382468234, IoU:0.3764814532870702, mIoU:0.6101886129807309
+Loss: 1.007
+Adv Loss: 0.923
+
+=>Epoches 38, learning rate = 0.0007,                 previous best_source = 0.7498
+
+=>Epoches 38, learning rate = 0.0007,                 previous best_target = 0.0000
+[Epoch: 38, numImages:  2128]
+Seg Loss: 1.250
+BN Loss: 0.000
+Adv Loss: 0.219
+Discriminator Loss: 59.525
+Validation on source:
+[Epoch: 38, numImages:   704]
+Acc:0.8925789528425426, IoU:0.7452653027321918, mIoU:0.8267292785012774
+Loss: 0.487
+Adv Loss: 0.326
+Validation on target:
+[Epoch: 38, numImages:   640]
+Acc:0.398937437697133, IoU:0.3508635954893136, mIoU:0.5972585287945826
+Loss: 1.063
+Adv Loss: 0.781
+Saving state, epoch: 38
+
+=>Epoches 39, learning rate = 0.0006,                 previous best_source = 0.7498
+
+=>Epoches 39, learning rate = 0.0006,                 previous best_target = 0.0000
+[Epoch: 39, numImages:  2128]
+Seg Loss: 1.245
+BN Loss: 0.000
+Adv Loss: 0.222
+Discriminator Loss: 58.740
+Validation on source:
+[Epoch: 39, numImages:   704]
+Acc:0.8871445093100162, IoU:0.7459926347501644, mIoU:0.8276212526476252
+Loss: 0.480
+Adv Loss: 0.462
+Validation on target:
+[Epoch: 39, numImages:   640]
+Acc:0.3888411359263192, IoU:0.34350339903948396, mIoU:0.593209756833757
+Loss: 1.079
+Adv Loss: 0.891
+
+=>Epoches 40, learning rate = 0.0006,                 previous best_source = 0.7498
+
+=>Epoches 40, learning rate = 0.0006,                 previous best_target = 0.0000
+[Epoch: 40, numImages:  2128]
+Seg Loss: 1.254
+BN Loss: 0.000
+Adv Loss: 0.222
+Discriminator Loss: 58.996
+Validation on source:
+[Epoch: 40, numImages:   704]
+Acc:0.9060830414469933, IoU:0.734061634476593, mIoU:0.8174395004562189
+Loss: 0.520
+Adv Loss: 0.527
+Validation on target:
+[Epoch: 40, numImages:   640]
+Acc:0.44305484212207275, IoU:0.3742168289039891, mIoU:0.6078963020218746
+Loss: 1.031
+Adv Loss: 0.976
+
+=>Epoches 41, learning rate = 0.0006,                 previous best_source = 0.7498
+
+=>Epoches 41, learning rate = 0.0006,                 previous best_target = 0.0000
+[Epoch: 41, numImages:  2128]
+Seg Loss: 1.250
+BN Loss: 0.000
+Adv Loss: 0.220
+Discriminator Loss: 58.688
+Validation on source:
+[Epoch: 41, numImages:   704]
+Acc:0.8993858270021067, IoU:0.7375709749222811, mIoU:0.8205390411205744
+Loss: 0.507
+Adv Loss: 0.471
+Validation on target:
+[Epoch: 41, numImages:   640]
+Acc:0.4791526820093669, IoU:0.3884792776169401, mIoU:0.6129723101138702
+Loss: 0.997
+Adv Loss: 1.157
+Saving state, epoch: 41
+
+=>Epoches 42, learning rate = 0.0006,                 previous best_source = 0.7498
+
+=>Epoches 42, learning rate = 0.0006,                 previous best_target = 0.0000
+[Epoch: 42, numImages:  2128]
+Seg Loss: 1.254
+BN Loss: 0.000
+Adv Loss: 0.226
+Discriminator Loss: 58.594
+Validation on source:
+[Epoch: 42, numImages:   704]
+Acc:0.8962412130475299, IoU:0.7402258047514854, mIoU:0.8227371272412156
+Loss: 0.499
+Adv Loss: 0.392
+Validation on target:
+[Epoch: 42, numImages:   640]
+Acc:0.479034688416419, IoU:0.39627543327517617, mIoU:0.6195062529595348
+Loss: 0.966
+Adv Loss: 0.920
+
+=>Epoches 43, learning rate = 0.0006,                 previous best_source = 0.7498
+
+=>Epoches 43, learning rate = 0.0006,                 previous best_target = 0.0000
+[Epoch: 43, numImages:  2128]
+Seg Loss: 1.236
+BN Loss: 0.000
+Adv Loss: 0.222
+Discriminator Loss: 58.744
+Validation on source:
+[Epoch: 43, numImages:   704]
+Acc:0.8948882442128583, IoU:0.7457872076936816, mIoU:0.8269659850346727
+Loss: 0.487
+Adv Loss: 0.281
+Validation on target:
+[Epoch: 43, numImages:   640]
+Acc:0.387786293204279, IoU:0.338521349660263, mIoU:0.5891937052404635
+Loss: 1.093
+Adv Loss: 0.787
+
+=>Epoches 44, learning rate = 0.0006,                 previous best_source = 0.7498
+
+=>Epoches 44, learning rate = 0.0006,                 previous best_target = 0.0000
+[Epoch: 44, numImages:  2128]
+Seg Loss: 1.248
+BN Loss: 0.000
+Adv Loss: 0.223
+Discriminator Loss: 58.254
+Validation on source:
+[Epoch: 44, numImages:   704]
+Acc:0.9000122347306239, IoU:0.7378225777947087, mIoU:0.8206848668038322
+Loss: 0.505
+Adv Loss: 0.543
+Validation on target:
+[Epoch: 44, numImages:   640]
+Acc:0.43679498203247563, IoU:0.37127326403819055, mIoU:0.6066600184081723
+Loss: 1.019
+Adv Loss: 0.987
+
+=>Epoches 45, learning rate = 0.0006,                 previous best_source = 0.7498
+
+=>Epoches 45, learning rate = 0.0006,                 previous best_target = 0.0000
+[Epoch: 45, numImages:  2128]
+Seg Loss: 1.253
+BN Loss: 0.000
+Adv Loss: 0.221
+Discriminator Loss: 59.015
+Validation on source:
+[Epoch: 45, numImages:   704]
+Acc:0.8986978526419701, IoU:0.7400137251395951, mIoU:0.8224135966965813
+Loss: 0.500
+Adv Loss: 0.380
+Validation on target:
+[Epoch: 45, numImages:   640]
+Acc:0.40925112766376787, IoU:0.3582785124074378, mIoU:0.6013317697514962
+Loss: 1.050
+Adv Loss: 0.803
+
+=>Epoches 46, learning rate = 0.0006,                 previous best_source = 0.7498
+
+=>Epoches 46, learning rate = 0.0006,                 previous best_target = 0.0000
+[Epoch: 46, numImages:  2128]
+Seg Loss: 1.248
+BN Loss: 0.000
+Adv Loss: 0.224
+Discriminator Loss: 58.023
+Validation on source:
+[Epoch: 46, numImages:   704]
+Acc:0.9010205052812755, IoU:0.7330764997918557, mIoU:0.8170505175461635
+Loss: 0.521
+Adv Loss: 0.416
+Validation on target:
+[Epoch: 46, numImages:   640]
+Acc:0.4786346101406694, IoU:0.3903911026238937, mIoU:0.6146751847125984
+Loss: 0.986
+Adv Loss: 0.998
+
+=>Epoches 47, learning rate = 0.0006,                 previous best_source = 0.7498
+
+=>Epoches 47, learning rate = 0.0006,                 previous best_target = 0.0000
+[Epoch: 47, numImages:  2128]
+Seg Loss: 1.253
+BN Loss: 0.000
+Adv Loss: 0.227
+Discriminator Loss: 58.366
+Validation on source:
+[Epoch: 47, numImages:   704]
+Acc:0.9068279041232764, IoU:0.7341850198639657, mIoU:0.8174806246941657
+Loss: 0.517
+Adv Loss: 0.412
+Validation on target:
+[Epoch: 47, numImages:   640]
+Acc:0.4411698444774449, IoU:0.37215764505590015, mIoU:0.6065383780017374
+Loss: 1.024
+Adv Loss: 0.811
+
+=>Epoches 48, learning rate = 0.0006,                 previous best_source = 0.7498
+
+=>Epoches 48, learning rate = 0.0006,                 previous best_target = 0.0000
+[Epoch: 48, numImages:  2128]
+Seg Loss: 1.248
+BN Loss: 0.000
+Adv Loss: 0.224
+Discriminator Loss: 57.953
+Validation on source:
+[Epoch: 48, numImages:   704]
+Acc:0.898157600771196, IoU:0.7353696303452935, mIoU:0.8189727019343676
+Loss: 0.513
+Adv Loss: 0.496
+Validation on target:
+[Epoch: 48, numImages:   640]
+Acc:0.48681936570844203, IoU:0.40371580964666454, mIoU:0.6242578165292711
+Loss: 0.961
+Adv Loss: 0.868
+Saving state, epoch: 48
+
+=>Epoches 49, learning rate = 0.0005,                 previous best_source = 0.7498
+
+=>Epoches 49, learning rate = 0.0005,                 previous best_target = 0.0000
+[Epoch: 49, numImages:  2128]
+Seg Loss: 1.245
+BN Loss: 0.000
+Adv Loss: 0.226
+Discriminator Loss: 58.153
+Validation on source:
+[Epoch: 49, numImages:   704]
+Acc:0.9051011191690833, IoU:0.7375635608909096, mIoU:0.8201430617863377
+Loss: 0.504
+Adv Loss: 0.351
+Validation on target:
+[Epoch: 49, numImages:   640]
+Acc:0.42323366841180526, IoU:0.3587718421972885, mIoU:0.5988534176566582
+Loss: 1.060
+Adv Loss: 0.965
+
+=>Epoches 50, learning rate = 0.0005,                 previous best_source = 0.7498
+
+=>Epoches 50, learning rate = 0.0005,                 previous best_target = 0.0000
+[Epoch: 50, numImages:  2128]
+Seg Loss: 1.244
+BN Loss: 0.000
+Adv Loss: 0.225
+Discriminator Loss: 58.193
+Validation on source:
+[Epoch: 50, numImages:   704]
+Acc:0.8927034334606372, IoU:0.7456027255141622, mIoU:0.8269714326675552
+Loss: 0.482
+Adv Loss: 0.323
+Validation on target:
+[Epoch: 50, numImages:   640]
+Acc:0.42667318164623663, IoU:0.363585133458699, mIoU:0.6022234608608212
+Loss: 1.024
+Adv Loss: 0.790
+
+=>Epoches 51, learning rate = 0.0005,                 previous best_source = 0.7498
+
+=>Epoches 51, learning rate = 0.0005,                 previous best_target = 0.0000
+[Epoch: 51, numImages:  2128]
+Seg Loss: 1.260
+BN Loss: 0.000
+Adv Loss: 0.225
+Discriminator Loss: 57.822
+Validation on source:
+[Epoch: 51, numImages:   704]
+Acc:0.9016238208446201, IoU:0.7415580279180136, mIoU:0.8233714431694452
+Loss: 0.495
+Adv Loss: 0.369
+Validation on target:
+[Epoch: 51, numImages:   640]
+Acc:0.4114571578763273, IoU:0.3532703041383879, mIoU:0.5966426257543993
+Loss: 1.054
+Adv Loss: 0.905
+
+=>Epoches 52, learning rate = 0.0005,                 previous best_source = 0.7498
+
+=>Epoches 52, learning rate = 0.0005,                 previous best_target = 0.0000
+[Epoch: 52, numImages:  2128]
+Seg Loss: 1.244
+BN Loss: 0.000
+Adv Loss: 0.223
+Discriminator Loss: 58.436
+Validation on source:
+[Epoch: 52, numImages:   704]
+Acc:0.895082824709994, IoU:0.7421476350826223, mIoU:0.8242472701475401
+Loss: 0.493
+Adv Loss: 0.347
+Validation on target:
+[Epoch: 52, numImages:   640]
+Acc:0.4455418570771607, IoU:0.37793060611082996, mIoU:0.6105176709094949
+Loss: 0.996
+Adv Loss: 0.915
+
+=>Epoches 53, learning rate = 0.0005,                 previous best_source = 0.7498
+
+=>Epoches 53, learning rate = 0.0005,                 previous best_target = 0.0000
+[Epoch: 53, numImages:  2128]
+Seg Loss: 1.266
+BN Loss: 0.000
+Adv Loss: 0.221
+Discriminator Loss: 58.812
+Validation on source:
+[Epoch: 53, numImages:   704]
+Acc:0.8952428230991565, IoU:0.7399276386954649, mIoU:0.8225816622938373
+Loss: 0.499
+Adv Loss: 0.366
+Validation on target:
+[Epoch: 53, numImages:   640]
+Acc:0.4893124303350328, IoU:0.404519728147704, mIoU:0.6244804768546192
+Loss: 0.943
+Adv Loss: 0.977
+Saving state, epoch: 53
+
+=>Epoches 54, learning rate = 0.0005,                 previous best_source = 0.7498
+
+=>Epoches 54, learning rate = 0.0005,                 previous best_target = 0.0000
+[Epoch: 54, numImages:  2128]
+Seg Loss: 1.258
+BN Loss: 0.000
+Adv Loss: 0.221
+Discriminator Loss: 58.398
+Validation on source:
+[Epoch: 54, numImages:   704]
+Acc:0.8919025058517306, IoU:0.7455205125163364, mIoU:0.8269626342990117
+Loss: 0.483
+Adv Loss: 0.298
+Validation on target:
+[Epoch: 54, numImages:   640]
+Acc:0.40919633063924626, IoU:0.3572753575865624, mIoU:0.6005011256742653
+Loss: 1.053
+Adv Loss: 0.732
+
+=>Epoches 55, learning rate = 0.0005,                 previous best_source = 0.7498
+
+=>Epoches 55, learning rate = 0.0005,                 previous best_target = 0.0000
+[Epoch: 55, numImages:  2128]
+Seg Loss: 1.248
+BN Loss: 0.000
+Adv Loss: 0.223
+Discriminator Loss: 58.221
+Validation on source:
+[Epoch: 55, numImages:   704]
+Acc:0.8933029689450799, IoU:0.7421596372536966, mIoU:0.8243743500074764
+Loss: 0.493
+Adv Loss: 0.304
+Validation on target:
+[Epoch: 55, numImages:   640]
+Acc:0.4394790862856147, IoU:0.37776282876534184, mIoU:0.6115463319900861
+Loss: 0.986
+Adv Loss: 0.831
+
+=>Epoches 56, learning rate = 0.0005,                 previous best_source = 0.7498
+
+=>Epoches 56, learning rate = 0.0005,                 previous best_target = 0.0000
+[Epoch: 56, numImages:  2128]
+Seg Loss: 1.243
+BN Loss: 0.000
+Adv Loss: 0.225
+Discriminator Loss: 58.101
+Validation on source:
+[Epoch: 56, numImages:   704]
+Acc:0.8964815287567257, IoU:0.7461090398931225, mIoU:0.8271011511663515
+Loss: 0.484
+Adv Loss: 0.271
+Validation on target:
+[Epoch: 56, numImages:   640]
+Acc:0.4209196940606125, IoU:0.36028085543032967, mIoU:0.6006105636995631
+Loss: 1.033
+Adv Loss: 0.792
+
+=>Epoches 57, learning rate = 0.0005,                 previous best_source = 0.7498
+
+=>Epoches 57, learning rate = 0.0005,                 previous best_target = 0.0000
+[Epoch: 57, numImages:  2128]
+Seg Loss: 1.245
+BN Loss: 0.000
+Adv Loss: 0.220
+Discriminator Loss: 58.283
+Validation on source:
+[Epoch: 57, numImages:   704]
+Acc:0.8944209740634564, IoU:0.7432865949366672, mIoU:0.825138712584808
+Loss: 0.493
+Adv Loss: 0.318
+Validation on target:
+[Epoch: 57, numImages:   640]
+Acc:0.41321271254970854, IoU:0.35895013410624393, mIoU:0.6010775239933704
+Loss: 1.025
+Adv Loss: 0.828
+
+=>Epoches 58, learning rate = 0.0005,                 previous best_source = 0.7498
+
+=>Epoches 58, learning rate = 0.0005,                 previous best_target = 0.0000
+[Epoch: 58, numImages:  2128]
+Seg Loss: 1.250
+BN Loss: 0.000
+Adv Loss: 0.223
+Discriminator Loss: 58.129
+Validation on source:
+[Epoch: 58, numImages:   704]
+Acc:0.8989718896490922, IoU:0.7399069601070312, mIoU:0.8223153432476286
+Loss: 0.500
+Adv Loss: 0.339
+Validation on target:
+[Epoch: 58, numImages:   640]
+Acc:0.4742765967807948, IoU:0.39473815727936457, mIoU:0.6190967011852433
+Loss: 0.977
+Adv Loss: 0.886
+
+=>Epoches 59, learning rate = 0.0004,                 previous best_source = 0.7498
+
+=>Epoches 59, learning rate = 0.0004,                 previous best_target = 0.0000
+[Epoch: 59, numImages:  2128]
+Seg Loss: 1.248
+BN Loss: 0.000
+Adv Loss: 0.221
+Discriminator Loss: 58.553
+Validation on source:
+[Epoch: 59, numImages:   704]
+Acc:0.8910874684433586, IoU:0.747037544868094, mIoU:0.828139257078504
+Loss: 0.478
+Adv Loss: 0.242
+Validation on target:
+[Epoch: 59, numImages:   640]
+Acc:0.42756403327299325, IoU:0.36484440961234976, mIoU:0.6031043474842672
+Loss: 1.033
+Adv Loss: 0.855
+
+=>Epoches 60, learning rate = 0.0004,                 previous best_source = 0.7498
+
+=>Epoches 60, learning rate = 0.0004,                 previous best_target = 0.0000
+[Epoch: 60, numImages:  2128]
+Seg Loss: 1.236
+BN Loss: 0.000
+Adv Loss: 0.226
+Discriminator Loss: 57.484
+Validation on source:
+[Epoch: 60, numImages:   704]
+Acc:0.8997581460606768, IoU:0.7379601128078206, mIoU:0.8208052138020829
+Loss: 0.510
+Adv Loss: 0.361
+Validation on target:
+[Epoch: 60, numImages:   640]
+Acc:0.5017664040842582, IoU:0.4095921608716832, mIoU:0.626485163254759
+Loss: 0.942
+Adv Loss: 0.763
+
+=>Epoches 61, learning rate = 0.0004,                 previous best_source = 0.7498
+
+=>Epoches 61, learning rate = 0.0004,                 previous best_target = 0.0000
+[Epoch: 61, numImages:  2128]
+Seg Loss: 1.244
+BN Loss: 0.000
+Adv Loss: 0.224
+Discriminator Loss: 57.991
+Validation on source:
+[Epoch: 61, numImages:   704]
+Acc:0.8916409318770274, IoU:0.7491314422299301, mIoU:0.829652274046637
+Loss: 0.474
+Adv Loss: 0.291
+Validation on target:
+[Epoch: 61, numImages:   640]
+Acc:0.39950810670980563, IoU:0.34686207218525167, mIoU:0.5937450389222592
+Loss: 1.076
+Adv Loss: 0.753
+
+=>Epoches 62, learning rate = 0.0004,                 previous best_source = 0.7498
+
+=>Epoches 62, learning rate = 0.0004,                 previous best_target = 0.0000
+[Epoch: 62, numImages:  2128]
+Seg Loss: 1.246
+BN Loss: 0.000
+Adv Loss: 0.222
+Discriminator Loss: 58.027
+Validation on source:
+[Epoch: 62, numImages:   704]
+Acc:0.8907219984386403, IoU:0.7470436737023228, mIoU:0.8281673902862944
+Loss: 0.481
+Adv Loss: 0.256
+Validation on target:
+[Epoch: 62, numImages:   640]
+Acc:0.4281942490522765, IoU:0.3664808976001617, mIoU:0.6043535438764192
+Loss: 1.030
+Adv Loss: 0.877
+Saving state, epoch: 62
+
+=>Epoches 63, learning rate = 0.0004,                 previous best_source = 0.7498
+
+=>Epoches 63, learning rate = 0.0004,                 previous best_target = 0.0000
+[Epoch: 63, numImages:  2128]
+Seg Loss: 1.250
+BN Loss: 0.000
+Adv Loss: 0.223
+Discriminator Loss: 57.752
+Validation on source:
+[Epoch: 63, numImages:   704]
+Acc:0.8961983222512773, IoU:0.7391868615454124, mIoU:0.8219642214624516
+Loss: 0.503
+Adv Loss: 0.302
+Validation on target:
+[Epoch: 63, numImages:   640]
+Acc:0.5208681668585395, IoU:0.41096801338964845, mIoU:0.6243170855890796
+Loss: 0.960
+Adv Loss: 0.918
+Saving state, epoch: 63
+
+=>Epoches 64, learning rate = 0.0004,                 previous best_source = 0.7498
+
+=>Epoches 64, learning rate = 0.0004,                 previous best_target = 0.0000
+[Epoch: 64, numImages:  2128]
+Seg Loss: 1.250
+BN Loss: 0.000
+Adv Loss: 0.223
+Discriminator Loss: 57.689
+Validation on source:
+[Epoch: 64, numImages:   704]
+Acc:0.9023139659431358, IoU:0.7374993132482459, mIoU:0.8202854205260016
+Loss: 0.509
+Adv Loss: 0.357
+Validation on target:
+[Epoch: 64, numImages:   640]
+Acc:0.46933141530414896, IoU:0.3889356458318806, mIoU:0.6151867714415754
+Loss: 0.983
+Adv Loss: 0.917
+
+=>Epoches 65, learning rate = 0.0004,                 previous best_source = 0.7498
+
+=>Epoches 65, learning rate = 0.0004,                 previous best_target = 0.0000
+[Epoch: 65, numImages:  2128]
+Seg Loss: 1.254
+BN Loss: 0.000
+Adv Loss: 0.222
+Discriminator Loss: 57.677
+Validation on source:
+[Epoch: 65, numImages:   704]
+Acc:0.8985863590276275, IoU:0.7427882071224656, mIoU:0.8244920069119177
+Loss: 0.496
+Adv Loss: 0.391
+Validation on target:
+[Epoch: 65, numImages:   640]
+Acc:0.4474150553624938, IoU:0.37931154481599033, mIoU:0.611307966478499
+Loss: 0.998
+Adv Loss: 0.901
+
+=>Epoches 66, learning rate = 0.0004,                 previous best_source = 0.7498
+
+=>Epoches 66, learning rate = 0.0004,                 previous best_target = 0.0000
+[Epoch: 66, numImages:  2128]
+Seg Loss: 1.239
+BN Loss: 0.000
+Adv Loss: 0.224
+Discriminator Loss: 57.372
+Validation on source:
+[Epoch: 66, numImages:   704]
+Acc:0.8879883277151754, IoU:0.7497256724745167, mIoU:0.8303236367474333
+Loss: 0.476
+Adv Loss: 0.235
+Validation on target:
+[Epoch: 66, numImages:   640]
+Acc:0.41608710647011865, IoU:0.3592784275558835, mIoU:0.6007606736045028
+Loss: 1.046
+Adv Loss: 0.739
+
+=>Epoches 67, learning rate = 0.0004,                 previous best_source = 0.7498
+
+=>Epoches 67, learning rate = 0.0004,                 previous best_target = 0.0000
+[Epoch: 67, numImages:  2128]
+Seg Loss: 1.235
+BN Loss: 0.000
+Adv Loss: 0.225
+Discriminator Loss: 57.952
+Validation on source:
+[Epoch: 67, numImages:   704]
+Acc:0.9008005870275402, IoU:0.745678706814448, mIoU:0.8264993357862044
+Loss: 0.488
+Adv Loss: 0.356
+Validation on target:
+[Epoch: 67, numImages:   640]
+Acc:0.4389585645499449, IoU:0.3634478809952728, mIoU:0.5996002106060846
+Loss: 1.050
+Adv Loss: 0.889
+
+=>Epoches 68, learning rate = 0.0004,                 previous best_source = 0.7498
+
+=>Epoches 68, learning rate = 0.0004,                 previous best_target = 0.0000
+[Epoch: 68, numImages:  2128]
+Seg Loss: 1.240
+BN Loss: 0.000
+Adv Loss: 0.224
+Discriminator Loss: 57.382
+Validation on source:
+[Epoch: 68, numImages:   704]
+Acc:0.9049027960195695, IoU:0.734629385825652, mIoU:0.8179495058607978
+Loss: 0.520
+Adv Loss: 0.425
+Validation on target:
+[Epoch: 68, numImages:   640]
+Acc:0.5087574744691363, IoU:0.4076479658027182, mIoU:0.6236591981284785
+Loss: 0.952
+Adv Loss: 0.964
+
+=>Epoches 69, learning rate = 0.0003,                 previous best_source = 0.7498
+
+=>Epoches 69, learning rate = 0.0003,                 previous best_target = 0.0000
+[Epoch: 69, numImages:  2128]
+Seg Loss: 1.251
+BN Loss: 0.000
+Adv Loss: 0.226
+Discriminator Loss: 56.996
+Validation on source:
+[Epoch: 69, numImages:   704]
+Acc:0.9011089067304454, IoU:0.7426732385268776, mIoU:0.8242387337227833
+Loss: 0.496
+Adv Loss: 0.308
+Validation on target:
+[Epoch: 69, numImages:   640]
+Acc:0.4353159123459596, IoU:0.37038936697078717, mIoU:0.6062116965754245
+Loss: 1.008
+Adv Loss: 0.822
+
+=>Epoches 70, learning rate = 0.0003,                 previous best_source = 0.7498
+
+=>Epoches 70, learning rate = 0.0003,                 previous best_target = 0.0000
+[Epoch: 70, numImages:  2128]
+Seg Loss: 1.237
+BN Loss: 0.000
+Adv Loss: 0.223
+Discriminator Loss: 57.769
+Validation on source:
+[Epoch: 70, numImages:   704]
+Acc:0.901236119484776, IoU:0.7442590940696723, mIoU:0.8254132668421913
+Loss: 0.490
+Adv Loss: 0.245
+Validation on target:
+[Epoch: 70, numImages:   640]
+Acc:0.40429424682239756, IoU:0.3514346966100558, mIoU:0.5966029471231675
+Loss: 1.063
+Adv Loss: 0.730
+
+=>Epoches 71, learning rate = 0.0003,                 previous best_source = 0.7498
+
+=>Epoches 71, learning rate = 0.0003,                 previous best_target = 0.0000
+[Epoch: 71, numImages:  2128]
+Seg Loss: 1.241
+BN Loss: 0.000
+Adv Loss: 0.224
+Discriminator Loss: 57.157
+Validation on source:
+[Epoch: 71, numImages:   704]
+Acc:0.9079867790056214, IoU:0.7371723272609675, mIoU:0.819651045385168
+Loss: 0.516
+Adv Loss: 0.306
+Validation on target:
+[Epoch: 71, numImages:   640]
+Acc:0.4590453738362007, IoU:0.3837730330965674, mIoU:0.6128108441561427
+Loss: 0.990
+Adv Loss: 0.923
+
+=>Epoches 72, learning rate = 0.0003,                 previous best_source = 0.7498
+
+=>Epoches 72, learning rate = 0.0003,                 previous best_target = 0.0000
+[Epoch: 72, numImages:  2128]
+Seg Loss: 1.241
+BN Loss: 0.000
+Adv Loss: 0.226
+Discriminator Loss: 57.651
+Validation on source:
+[Epoch: 72, numImages:   704]
+Acc:0.8973706332556596, IoU:0.7442109388366045, mIoU:0.8256319896901938
+Loss: 0.491
+Adv Loss: 0.252
+Validation on target:
+[Epoch: 72, numImages:   640]
+Acc:0.4233980094880848, IoU:0.36251577580307515, mIoU:0.6019889029659068
+Loss: 1.035
+Adv Loss: 0.738
+
+=>Epoches 73, learning rate = 0.0003,                 previous best_source = 0.7498
+
+=>Epoches 73, learning rate = 0.0003,                 previous best_target = 0.0000
+[Epoch: 73, numImages:  2128]
+Seg Loss: 1.244
+BN Loss: 0.000
+Adv Loss: 0.222
+Discriminator Loss: 57.667
+Validation on source:
+[Epoch: 73, numImages:   704]
+Acc:0.8909796800548703, IoU:0.7467172468228269, mIoU:0.8279091313104421
+Loss: 0.483
+Adv Loss: 0.261
+Validation on target:
+[Epoch: 73, numImages:   640]
+Acc:0.4387461760826387, IoU:0.37516140289690064, mIoU:0.6095264347279516
+Loss: 1.009
+Adv Loss: 0.838
+
+=>Epoches 74, learning rate = 0.0003,                 previous best_source = 0.7498
+
+=>Epoches 74, learning rate = 0.0003,                 previous best_target = 0.0000
+[Epoch: 74, numImages:  2128]
+Seg Loss: 1.248
+BN Loss: 0.000
+Adv Loss: 0.222
+Discriminator Loss: 57.543
+Validation on source:
+[Epoch: 74, numImages:   704]
+Acc:0.8979880211919458, IoU:0.7442034542955247, mIoU:0.8255857909150517
+Loss: 0.491
+Adv Loss: 0.280
+Validation on target:
+[Epoch: 74, numImages:   640]
+Acc:0.4359355786980767, IoU:0.3706243797996783, mIoU:0.6062859773289941
+Loss: 1.009
+Adv Loss: 0.791
+Saving state, epoch: 74
+
+=>Epoches 75, learning rate = 0.0003,                 previous best_source = 0.7498
+
+=>Epoches 75, learning rate = 0.0003,                 previous best_target = 0.0000
+[Epoch: 75, numImages:  2128]
+Seg Loss: 1.242
+BN Loss: 0.000
+Adv Loss: 0.224
+Discriminator Loss: 57.662
+Validation on source:
+[Epoch: 75, numImages:   704]
+Acc:0.8987701232593907, IoU:0.7459564042923813, mIoU:0.8268385782012566
+Loss: 0.491
+Adv Loss: 0.258
+Validation on target:
+[Epoch: 75, numImages:   640]
+Acc:0.40223255877205866, IoU:0.3506544570221982, mIoU:0.5963807450466241
+Loss: 1.058
+Adv Loss: 0.725
+Saving state, epoch: 75
+
+=>Epoches 76, learning rate = 0.0003,                 previous best_source = 0.7498
+
+=>Epoches 76, learning rate = 0.0003,                 previous best_target = 0.0000
+[Epoch: 76, numImages:  2128]
+Seg Loss: 1.239
+BN Loss: 0.000
+Adv Loss: 0.221
+Discriminator Loss: 57.816
+Validation on source:
+[Epoch: 76, numImages:   704]
+Acc:0.8988030960268414, IoU:0.7436914483744202, mIoU:0.8251507859958811
+Loss: 0.493
+Adv Loss: 0.291
+Validation on target:
+[Epoch: 76, numImages:   640]
+Acc:0.42759933135630734, IoU:0.36861772625025807, mIoU:0.6062622910191277
+Loss: 1.014
+Adv Loss: 0.848
+
+=>Epoches 77, learning rate = 0.0003,                 previous best_source = 0.7498
+
+=>Epoches 77, learning rate = 0.0003,                 previous best_target = 0.0000
+[Epoch: 77, numImages:  2128]
+Seg Loss: 1.235
+BN Loss: 0.000
+Adv Loss: 0.224
+Discriminator Loss: 57.668
+Validation on source:
+[Epoch: 77, numImages:   704]
+Acc:0.8885165282452923, IoU:0.75176586028466, mIoU:0.8317934893556278
+Loss: 0.468
+Adv Loss: 0.271
+Validation on target:
+[Epoch: 77, numImages:   640]
+Acc:0.41818004282367466, IoU:0.3600147534487628, mIoU:0.6009499535230726
+Loss: 1.040
+Adv Loss: 0.830
+Saving state, epoch: 77
+
+=>Epoches 78, learning rate = 0.0003,                 previous best_source = 0.7518
+
+=>Epoches 78, learning rate = 0.0003,                 previous best_target = 0.0000
+[Epoch: 78, numImages:  2128]
+Seg Loss: 1.239
+BN Loss: 0.000
+Adv Loss: 0.224
+Discriminator Loss: 57.525
+Validation on source:
+[Epoch: 78, numImages:   704]
+Acc:0.898184398162223, IoU:0.741753409721682, mIoU:0.8237470252441148
+Loss: 0.498
+Adv Loss: 0.280
+Validation on target:
+[Epoch: 78, numImages:   640]
+Acc:0.5084968386216628, IoU:0.40700435625791537, mIoU:0.6231691055617617
+Loss: 0.956
+Adv Loss: 0.793
+
+=>Epoches 79, learning rate = 0.0002,                 previous best_source = 0.7518
+
+=>Epoches 79, learning rate = 0.0002,                 previous best_target = 0.0000
+[Epoch: 79, numImages:  2128]
+Seg Loss: 1.235
+BN Loss: 0.000
+Adv Loss: 0.220
+Discriminator Loss: 57.716
+Validation on source:
+[Epoch: 79, numImages:   704]
+Acc:0.8987666051661553, IoU:0.7417885558557856, mIoU:0.8237344248385488
+Loss: 0.499
+Adv Loss: 0.295
+Validation on target:
+[Epoch: 79, numImages:   640]
+Acc:0.49407427176704305, IoU:0.4044126635310909, mIoU:0.6235542183352238
+Loss: 0.958
+Adv Loss: 0.958
+Saving state, epoch: 79
+
+=>Epoches 80, learning rate = 0.0002,                 previous best_source = 0.7518
+
+=>Epoches 80, learning rate = 0.0002,                 previous best_target = 0.0000
+[Epoch: 80, numImages:  2128]
+Seg Loss: 1.226
+BN Loss: 0.000
+Adv Loss: 0.224
+Discriminator Loss: 57.409
+Validation on source:
+[Epoch: 80, numImages:   704]
+Acc:0.8934819425817991, IoU:0.7459828245243856, mIoU:0.827202659524817
+Loss: 0.486
+Adv Loss: 0.245
+Validation on target:
+[Epoch: 80, numImages:   640]
+Acc:0.46040280012795304, IoU:0.3832400691754835, mIoU:0.6121083897204297
+Loss: 1.013
+Adv Loss: 0.836
+
+=>Epoches 81, learning rate = 0.0002,                 previous best_source = 0.7518
+
+=>Epoches 81, learning rate = 0.0002,                 previous best_target = 0.0000
+[Epoch: 81, numImages:  2128]
+Seg Loss: 1.224
+BN Loss: 0.000
+Adv Loss: 0.224
+Discriminator Loss: 57.143
+Validation on source:
+[Epoch: 81, numImages:   704]
+Acc:0.9088337038122545, IoU:0.735550656625661, mIoU:0.8183710460983945
+Loss: 0.520
+Adv Loss: 0.269
+Validation on target:
+[Epoch: 81, numImages:   640]
+Acc:0.5063215067421839, IoU:0.4027216833743936, mIoU:0.6199753565258788
+Loss: 0.972
+Adv Loss: 0.820
+
+=>Epoches 82, learning rate = 0.0002,                 previous best_source = 0.7518
+
+=>Epoches 82, learning rate = 0.0002,                 previous best_target = 0.0000
+[Epoch: 82, numImages:  2128]
+Seg Loss: 1.241
+BN Loss: 0.000
+Adv Loss: 0.222
+Discriminator Loss: 57.631
+Validation on source:
+[Epoch: 82, numImages:   704]
+Acc:0.9045947383023306, IoU:0.7384671846920181, mIoU:0.820856143626489
+Loss: 0.510
+Adv Loss: 0.254
+Validation on target:
+[Epoch: 82, numImages:   640]
+Acc:0.5062685596172127, IoU:0.41038951764751513, mIoU:0.6263643540250274
+Loss: 0.947
+Adv Loss: 0.884
+
+=>Epoches 83, learning rate = 0.0002,                 previous best_source = 0.7518
+
+=>Epoches 83, learning rate = 0.0002,                 previous best_target = 0.0000
+[Epoch: 83, numImages:  2128]
+Seg Loss: 1.238
+BN Loss: 0.000
+Adv Loss: 0.224
+Discriminator Loss: 57.467
+Validation on source:
+[Epoch: 83, numImages:   704]
+Acc:0.9052863056087501, IoU:0.7370328509468436, mIoU:0.8197315459893357
+Loss: 0.514
+Adv Loss: 0.308
+Validation on target:
+[Epoch: 83, numImages:   640]
+Acc:0.51349331731287, IoU:0.4081037394229699, mIoU:0.6232103764216428
+Loss: 0.952
+Adv Loss: 0.912
+
+=>Epoches 84, learning rate = 0.0002,                 previous best_source = 0.7518
+
+=>Epoches 84, learning rate = 0.0002,                 previous best_target = 0.0000
+[Epoch: 84, numImages:  2128]
+Seg Loss: 1.254
+BN Loss: 0.000
+Adv Loss: 0.225
+Discriminator Loss: 57.066
+Validation on source:
+[Epoch: 84, numImages:   704]
+Acc:0.8968585635572923, IoU:0.7450818996245485, mIoU:0.826313383846021
+Loss: 0.490
+Adv Loss: 0.189
+Validation on target:
+[Epoch: 84, numImages:   640]
+Acc:0.4635752778624121, IoU:0.38712229257340086, mIoU:0.6147497070922266
+Loss: 0.978
+Adv Loss: 0.743
+
+=>Epoches 85, learning rate = 0.0002,                 previous best_source = 0.7518
+
+=>Epoches 85, learning rate = 0.0002,                 previous best_target = 0.0000
+[Epoch: 85, numImages:  2128]
+Seg Loss: 1.232
+BN Loss: 0.000
+Adv Loss: 0.220
+Discriminator Loss: 57.900
+Validation on source:
+[Epoch: 85, numImages:   704]
+Acc:0.8920267244841587, IoU:0.7518567177957404, mIoU:0.8316395608570278
+Loss: 0.471
+Adv Loss: 0.275
+Validation on target:
+[Epoch: 85, numImages:   640]
+Acc:0.419178288618928, IoU:0.35954432331153213, mIoU:0.6003471417876008
+Loss: 1.042
+Adv Loss: 0.892
+Saving state, epoch: 85
+
+=>Epoches 86, learning rate = 0.0002,                 previous best_source = 0.7519
+
+=>Epoches 86, learning rate = 0.0002,                 previous best_target = 0.0000
+[Epoch: 86, numImages:  2128]
+Seg Loss: 1.229
+BN Loss: 0.000
+Adv Loss: 0.225
+Discriminator Loss: 57.003
+Validation on source:
+[Epoch: 86, numImages:   704]
+Acc:0.8956251350395761, IoU:0.7449907084063425, mIoU:0.8263263553527064
+Loss: 0.488
+Adv Loss: 0.334
+Validation on target:
+[Epoch: 86, numImages:   640]
+Acc:0.4581276736673199, IoU:0.38783765983876406, mIoU:0.6163586718751715
+Loss: 0.988
+Adv Loss: 0.823
+
+=>Epoches 87, learning rate = 0.0002,                 previous best_source = 0.7519
+
+=>Epoches 87, learning rate = 0.0002,                 previous best_target = 0.0000
+[Epoch: 87, numImages:  2128]
+Seg Loss: 1.236
+BN Loss: 0.000
+Adv Loss: 0.223
+Discriminator Loss: 57.022
+Validation on source:
+[Epoch: 87, numImages:   704]
+Acc:0.9101169844596465, IoU:0.733785528119279, mIoU:0.8169493107630432
+Loss: 0.525
+Adv Loss: 0.271
+Validation on target:
+[Epoch: 87, numImages:   640]
+Acc:0.5214439355942972, IoU:0.4101591887744271, mIoU:0.6235407094691003
+Loss: 0.949
+Adv Loss: 0.902
+
+=>Epoches 88, learning rate = 0.0001,                 previous best_source = 0.7519
+
+=>Epoches 88, learning rate = 0.0001,                 previous best_target = 0.0000
+[Epoch: 88, numImages:  2128]
+Seg Loss: 1.241
+BN Loss: 0.000
+Adv Loss: 0.223
+Discriminator Loss: 57.393
+Validation on source:
+[Epoch: 88, numImages:   704]
+Acc:0.90711601350334, IoU:0.7302954757009245, mIoU:0.8145213206858378
+Loss: 0.526
+Adv Loss: 0.286
+Validation on target:
+[Epoch: 88, numImages:   640]
+Acc:0.5073371515926686, IoU:0.39048564855778284, mIoU:0.6093968383627709
+Loss: 0.991
+Adv Loss: 0.905
+Saving state, epoch: 88
+
+=>Epoches 89, learning rate = 0.0001,                 previous best_source = 0.7519
+
+=>Epoches 89, learning rate = 0.0001,                 previous best_target = 0.0000
+[Epoch: 89, numImages:  2128]
+Seg Loss: 1.230
+BN Loss: 0.000
+Adv Loss: 0.222
+Discriminator Loss: 57.026
+Validation on source:
+[Epoch: 89, numImages:   704]
+Acc:0.9046013253705161, IoU:0.7408499511000399, mIoU:0.8226420167280744
+Loss: 0.506
+Adv Loss: 0.271
+Validation on target:
+[Epoch: 89, numImages:   640]
+Acc:0.485026563057626, IoU:0.38680986640366466, mIoU:0.6104557826063488
+Loss: 0.990
+Adv Loss: 0.873
+
+=>Epoches 90, learning rate = 0.0001,                 previous best_source = 0.7519
+
+=>Epoches 90, learning rate = 0.0001,                 previous best_target = 0.0000
+[Epoch: 90, numImages:  2128]
+Seg Loss: 1.242
+BN Loss: 0.000
+Adv Loss: 0.225
+Discriminator Loss: 57.001
+Validation on source:
+[Epoch: 90, numImages:   704]
+Acc:0.907136672944467, IoU:0.7358714517585992, mIoU:0.818730235536175
+Loss: 0.515
+Adv Loss: 0.251
+Validation on target:
+[Epoch: 90, numImages:   640]
+Acc:0.5050740744777559, IoU:0.41075331250703934, mIoU:0.6268707042807948
+Loss: 0.949
+Adv Loss: 0.749
+
+=>Epoches 91, learning rate = 0.0001,                 previous best_source = 0.7519
+
+=>Epoches 91, learning rate = 0.0001,                 previous best_target = 0.0000
+[Epoch: 91, numImages:  2128]
+Seg Loss: 1.241
+BN Loss: 0.000
+Adv Loss: 0.223
+Discriminator Loss: 57.177
+Validation on source:
+[Epoch: 91, numImages:   704]
+Acc:0.896000747632239, IoU:0.746076270601718, mIoU:0.8271081185282054
+Loss: 0.491
+Adv Loss: 0.299
+Validation on target:
+[Epoch: 91, numImages:   640]
+Acc:0.4569726863831294, IoU:0.37500384647734475, mIoU:0.605832440968397
+Loss: 1.016
+Adv Loss: 0.815
+
+=>Epoches 92, learning rate = 0.0001,                 previous best_source = 0.7519
+
+=>Epoches 92, learning rate = 0.0001,                 previous best_target = 0.0000
+[Epoch: 92, numImages:  2128]
+Seg Loss: 1.244
+BN Loss: 0.000
+Adv Loss: 0.223
+Discriminator Loss: 56.950
+Validation on source:
+[Epoch: 92, numImages:   704]
+Acc:0.9146298372705974, IoU:0.730341508753081, mIoU:0.8140207564876041
+Loss: 0.538
+Adv Loss: 0.274
+Validation on target:
+[Epoch: 92, numImages:   640]
+Acc:0.5399630800047558, IoU:0.4137075181520559, mIoU:0.6233103169210411
+Loss: 0.960
+Adv Loss: 0.757
+
+=>Epoches 93, learning rate = 0.0001,                 previous best_source = 0.7519
+
+=>Epoches 93, learning rate = 0.0001,                 previous best_target = 0.0000
+[Epoch: 93, numImages:  2128]
+Seg Loss: 1.238
+BN Loss: 0.000
+Adv Loss: 0.224
+Discriminator Loss: 57.128
+Validation on source:
+[Epoch: 93, numImages:   704]
+Acc:0.904852532198132, IoU:0.7379401639251694, mIoU:0.8204429244412696
+Loss: 0.512
+Adv Loss: 0.255
+Validation on target:
+[Epoch: 93, numImages:   640]
+Acc:0.4947339859445632, IoU:0.40571133084871513, mIoU:0.6245106354165579
+Loss: 0.958
+Adv Loss: 0.840
+
+=>Epoches 94, learning rate = 0.0001,                 previous best_source = 0.7519
+
+=>Epoches 94, learning rate = 0.0001,                 previous best_target = 0.0000
+[Epoch: 94, numImages:  2128]
+Seg Loss: 1.240
+BN Loss: 0.000
+Adv Loss: 0.223
+Discriminator Loss: 56.933
+Validation on source:
+[Epoch: 94, numImages:   704]
+Acc:0.9100413454550857, IoU:0.7315779150674546, mIoU:0.8152847366705629
+Loss: 0.522
+Adv Loss: 0.246
+Validation on target:
+[Epoch: 94, numImages:   640]
+Acc:0.46467576810579186, IoU:0.3676270543500661, mIoU:0.5979592673304989
+Loss: 1.026
+Adv Loss: 0.805
+
+=>Epoches 95, learning rate = 0.0001,                 previous best_source = 0.7519
+
+=>Epoches 95, learning rate = 0.0001,                 previous best_target = 0.0000
+[Epoch: 95, numImages:  2128]
+Seg Loss: 1.228
+BN Loss: 0.000
+Adv Loss: 0.226
+Discriminator Loss: 56.872
+Validation on source:
+[Epoch: 95, numImages:   704]
+Acc:0.8981696146853296, IoU:0.7453839512027838, mIoU:0.8264521597511049
+Loss: 0.489
+Adv Loss: 0.274
+Validation on target:
+[Epoch: 95, numImages:   640]
+Acc:0.474415039263368, IoU:0.39142310944314085, mIoU:0.6163184054533403
+Loss: 0.980
+Adv Loss: 0.886
+
+=>Epoches 96, learning rate = 0.0001,                 previous best_source = 0.7519
+
+=>Epoches 96, learning rate = 0.0001,                 previous best_target = 0.0000
+[Epoch: 96, numImages:  2128]
+Seg Loss: 1.239
+BN Loss: 0.000
+Adv Loss: 0.224
+Discriminator Loss: 56.464
+Validation on source:
+[Epoch: 96, numImages:   704]
+Acc:0.8935734130059191, IoU:0.7474195289348975, mIoU:0.8282616046465201
+Loss: 0.483
+Adv Loss: 0.235
+Validation on target:
+[Epoch: 96, numImages:   640]
+Acc:0.4643654349568818, IoU:0.38516925041726474, mIoU:0.6129721895131847
+Loss: 0.991
+Adv Loss: 0.859
+
+=>Epoches 97, learning rate = 0.0000,                 previous best_source = 0.7519
+
+=>Epoches 97, learning rate = 0.0000,                 previous best_target = 0.0000
+[Epoch: 97, numImages:  2128]
+Seg Loss: 1.248
+BN Loss: 0.000
+Adv Loss: 0.225
+Discriminator Loss: 56.521
+Validation on source:
+[Epoch: 97, numImages:   704]
+Acc:0.8934351594270733, IoU:0.7477511750159876, mIoU:0.8285161405099786
+Loss: 0.483
+Adv Loss: 0.227
+Validation on target:
+[Epoch: 97, numImages:   640]
+Acc:0.4658305054035566, IoU:0.3882082008367643, mIoU:0.6152325057221971
+Loss: 0.981
+Adv Loss: 0.840
+
+=>Epoches 98, learning rate = 0.0000,                 previous best_source = 0.7519
+
+=>Epoches 98, learning rate = 0.0000,                 previous best_target = 0.0000
+[Epoch: 98, numImages:  2128]
+Seg Loss: 1.238
+BN Loss: 0.000
+Adv Loss: 0.225
+Discriminator Loss: 56.608
+Validation on source:
+[Epoch: 98, numImages:   704]
+Acc:0.8948987610660406, IoU:0.7502406508414912, mIoU:0.8302644745559855
+Loss: 0.480
+Adv Loss: 0.225
+Validation on target:
+[Epoch: 98, numImages:   640]
+Acc:0.44089450942813807, IoU:0.3705518878467302, mIoU:0.6052411986430654
+Loss: 1.015
+Adv Loss: 0.804
+Saving state, epoch: 98
+
+=>Epoches 99, learning rate = 0.0000,                 previous best_source = 0.7519
+
+=>Epoches 99, learning rate = 0.0000,                 previous best_target = 0.0000
+[Epoch: 99, numImages:  2128]
+Seg Loss: 1.249
+BN Loss: 0.000
+Adv Loss: 0.224
+Discriminator Loss: 56.647
+Validation on source:
+[Epoch: 99, numImages:   704]
+Acc:0.8972007916907428, IoU:0.7457759251227728, mIoU:0.8268068287096191
+Loss: 0.492
+Adv Loss: 0.243
+Validation on target:
+[Epoch: 99, numImages:   640]
+Acc:0.4796449052816432, IoU:0.3934452739394308, mIoU:0.617042457823799
+Loss: 0.963
+Adv Loss: 0.832
