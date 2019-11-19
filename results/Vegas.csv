@@ -1,11 +1,13 @@
 exp,Shanghai,boost_Shanghai,Vegas,boost_Vegas,Paris,boost_Paris,Khartoum,boost_Khartoum,avg_boost
 xh.deeplab.mobilenet.vegas,0.16,0,0.77,0,0.45,0,0.07,0,0.0
 xh.deeplab.mobilenet.vegas.test_bn,0.44,0,0.77,0,0.54,0,0.42,0,0.0
-deeplab.mobilenet.vegas.bottleneck-bn.adversarial.finetune.test_bn,0.49,0.11,0.75,-0.03,0.54,0.0,0.45,0.07,0.04
+deeplab.mobilenet.vegas.bottleneck-bn.adversarial.finetune.test_bn,0.4903,0.1143,0.7506,-0.0252,0.5368,-0.0059,0.4523,0.0769,0.04
+deeplab.mobilenet.vegas.adversarial.finetune.test_bn,0.4857,0.1039,0.7404,-0.0384,0.5317,-0.0154,0.4427,0.054,0.026
 deeplab.mobilenet.vegas.bottleneck-bn.entropy-loss.finetune.test_bn,0.44,0.0,0.74,-0.04,0.53,-0.02,0.42,0.0,-0.01
 deeplab.mobilenet.vegas.bottleneck-bn.finetune.test_bn,0.44,0.0,0.73,-0.05,0.54,0.0,0.42,0.0,-0.01
 deeplab.mobilenet.vegas.bottleneck-bn-class.finetune.test_bn,0.45,0.02,0.72,-0.06,0.52,-0.04,0.41,-0.02,-0.02
-deeplab.mobilenet.vegas.bottleneck-bn.adversarial.finetune,0.41,-0.07,0.75,-0.03,0.48,-0.11,0.34,-0.19,-0.1
+deeplab.mobilenet.vegas.adversarial.finetune,0.4439,0.0089,0.7404,-0.0384,0.4669,-0.1354,0.3765,-0.1036,-0.0671
+deeplab.mobilenet.vegas.bottleneck-bn.adversarial.finetune,0.408,-0.0727,0.7506,-0.0252,0.4841,-0.1035,0.3419,-0.186,-0.0968
 deeplab.mobilenet.vegas.adversarial.test_bn,0.4,-0.09,0.59,-0.23,0.42,-0.22,0.44,0.05,-0.12
 deeplab.mobilenet.vegas.bottleneck-bn.adversarial.test_bn,0.4,-0.09,0.62,-0.19,0.45,-0.17,0.41,-0.02,-0.12
 deeplab.mobilenet.vegas.adversarial,0.39,-0.11,0.59,-0.23,0.4,-0.26,0.43,0.02,-0.15
