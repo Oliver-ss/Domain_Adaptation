@@ -11,7 +11,7 @@ class Config:
 
     #Data
     all_dataset = ['Shanghai', 'Vegas', 'Paris', 'Khartoum']
-    dataset = 'Paris'
+    dataset = 'Khartoum'
     train_num_workers = 4
     val_num_workers = 2
     img_root = '/usr/xtmp/satellite/spacenet/'

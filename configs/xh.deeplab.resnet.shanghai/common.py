@@ -11,7 +11,7 @@ class Config:
 
     #Data
     all_dataset = ['Shanghai', 'Vegas', 'Paris', 'Khartoum']
-    dataset = 'Paris'
+    dataset = 'Shanghai'
     train_num_workers = 4
     val_num_workers = 2
     img_root = '/usr/xtmp/satellite/spacenet/'
@@ -20,7 +20,7 @@ class Config:
     freeze_bn = False
     sync_bn = False
     loss = 'ce' #['ce', 'focal']
-    epochs = 100000
+    epochs = 5000
     lr = 1e-3
     momentum = 0.9
     weight_decay = 5e-4

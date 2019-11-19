@@ -56,7 +56,7 @@ class Spacenet(data.Dataset):
             tr.RandomScaleCrop(base_size=400, crop_size=400, fill=0),
             tr.RandomGaussianBlur(),
             # tr.Normalize(),
-            tr.Normalize(mean=(0.1420, 0.2116, 0.2823), std=(0.0899, 0.1083, 0.1310)),
+            tr.Normalize(mean=(0.2709, 0.3400, 0.3707), std=(0.1403, 0.1570, 0.1658)),
             tr.ToTensor(),
         ])
 
@@ -66,7 +66,7 @@ class Spacenet(data.Dataset):
 
         composed_transforms = transforms.Compose([
             tr.FixScaleCrop(400),
-            tr.Normalize(mean=(0.1420, 0.2116, 0.2823), std=(0.0899, 0.1083, 0.1310)),
+            tr.Normalize(mean=(0.2709, 0.3400, 0.3707), std=(0.1403, 0.1570, 0.1658)),
             # tr.Normalize(),
             tr.ToTensor()])
 
@@ -76,7 +76,7 @@ class Spacenet(data.Dataset):
 
         composed_transforms = transforms.Compose([
             tr.FixedResize(size=400),
-            tr.Normalize(mean=(0.1420, 0.2116, 0.2823), std=(0.0899, 0.1083, 0.1310)),
+            tr.Normalize(mean=(0.2709, 0.3400, 0.3707), std=(0.1403, 0.1570, 0.1658)),
             # tr.Normalize(),
             tr.ToTensor()])
 
