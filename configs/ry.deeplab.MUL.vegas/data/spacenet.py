@@ -49,7 +49,10 @@ class Spacenet(data.Dataset):
             else:
                 img = np.concatenate((img, layer), -1)
         #target = cv2.imread(os.path.join(self.img_root, self.files[index] + '_GT.tif'))
-        target = Image.open(os.path.join(self.img_root, 'Building_GT/'+self.files[index] + '_GT.tif'))
+        # target = Image.open(os.path.join(self.img_root, 'Building_GT/'+self.files[index] + '_GT.tif'))
+        target_rasters = rasterio.open(os.path.join(self.img_root, 'Building_GT/'+self.files[index] + '_GT.tif'))
+        target = target_rasters.read(1).astype('bool')
+        target = target.astype('int8')
         sample = {'image': img, 'label': target}
         if self.split == 'train':
             return self.transform_tr(sample)
@@ -61,7 +64,7 @@ class Spacenet(data.Dataset):
     def transform_tr(self, sample):
         composed_transforms = transforms.Compose([
             #tr.RandomHorizontalFlip(),
-            #tr.RandomScaleCrop(base_size=400, crop_size=400, fill=0),
+            tr.RandomScaleCrop(base_size=400, crop_size=400, fill=0),
             #tr.RandomGaussianBlur(),
             #tr.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),
             tr.Normalize(),

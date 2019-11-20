@@ -15,7 +15,7 @@ class Config:
     val_num_workers = 2
     img_root = '/usr/xtmp/satellite/spacenet_new/AOI_2_Vegas/'
     #Train
-    batch_size = 16
+    batch_size = 6
     freeze_bn = False
     sync_bn = False
     loss = 'ce' #['ce', 'focal']

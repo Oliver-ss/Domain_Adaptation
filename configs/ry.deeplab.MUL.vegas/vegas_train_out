@@ -1,9 +1,0 @@
-Using cuda device: 0
-Namespace(checkname=None, cuda=True, gpu='0', no_cuda=False, resume=None, save_folder='train_log/', seed=1, start_epoch=0)
-Found 2137 train images
-Found 712 val images
-Using poly LR Scheduler!
-Starting Epoch: 0
-Total Epoches: 80
-
-=>Epoches 0, learning rate = 0.0000,                 previous best = 0.0000
