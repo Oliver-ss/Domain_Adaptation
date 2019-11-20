@@ -10,4 +10,7 @@ To watch the results of every epoch on the validation dataset and delete the bad
 
 To test the model, run ```make test MODEL=<path where the model is saved>```
 
+To push the result to csv, run ```make push_result``` 
+  * default: NAME = test.json;   BASELINE = False
+
 For the details, please directly check the python scripts. 
