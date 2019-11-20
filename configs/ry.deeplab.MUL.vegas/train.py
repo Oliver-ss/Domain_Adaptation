@@ -21,6 +21,7 @@ class Trainer(object):
 
         # Define Dataloader
         self.train_loader, self.val_loader, self.test_loader, self.nclass = make_data_loader(config)
+        #IPython.embed()
 
         # Define network
         model = DeepLab(num_classes=self.nclass,
@@ -75,6 +76,7 @@ class Trainer(object):
         tbar = tqdm(self.train_loader)
         num_img_tr = len(self.train_loader)
         for i, sample in enumerate(tbar):
+            #IPython.embed()
             image, target = sample['image'], sample['label']
             if self.args.cuda:
                 image, target = image.cuda(), target.cuda()

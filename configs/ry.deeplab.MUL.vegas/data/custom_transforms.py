@@ -52,9 +52,8 @@ class RandomHorizontalFlip(object):
     def __call__(self, sample):
         img = sample['image']
         mask = sample['label']
-        #IPython.embed()
         if random.random() < 0.5:
-            img = img.transpose(Image.FLIP_LEFT_RIGHT)
+            img = np.fliplr(img)
             mask = mask.transpose(Image.FLIP_LEFT_RIGHT)
 
         return {'image': img,
