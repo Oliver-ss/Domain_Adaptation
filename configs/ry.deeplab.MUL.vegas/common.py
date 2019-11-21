@@ -19,7 +19,7 @@ class Config:
     freeze_bn = False
     sync_bn = False
     loss = 'ce' #['ce', 'focal']
-    epochs = 80
+    epochs = 120
     lr = 1e-3
     momentum = 0.9
     weight_decay = 5e-4
