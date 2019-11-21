@@ -1,3 +1,4 @@
 exp(%),Shanghai,boost_Shanghai,Vegas,boost_Vegas,Paris,boost_Paris,Khartoum,boost_Khartoum,avg_boost
 xh.deeplab.resnet.paris,38.17,0,55.48,0,68.3,0,22.76,0,0.0
 xh.deeplab.resnet.paris.test_bn,43.71,0,57.42,0,68.3,0,32.7,0,0.0
+xh.resnet.paris.test_csv,17.8,-25.91,61.99,4.57,71.24,2.94,7.76,-24.94,-10.84
