@@ -47,7 +47,7 @@ class Trainer(object):
         self.evaluator = Evaluator(self.nclass)
         # Define lr scheduler
         self.scheduler = LR_Scheduler(config.lr_scheduler, config.lr,
-                                      config.T, len(self.train_loader),
+                                      config.epochs, len(self.train_loader),
                                       config.lr_step, config.warmup_epochs)
 
         # Using cuda

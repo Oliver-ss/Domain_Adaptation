@@ -27,7 +27,6 @@ class Config:
     lr_scheduler = 'cos'
     lr_step = 5
     warmup_epochs = 10
-    T = 100 # how many epoch in a period
 
 
 config = Config()

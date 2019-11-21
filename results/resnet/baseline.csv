@@ -1,0 +1,9 @@
+source,Shanghai,Vegas,Paris,Khartoum
+shanghai.test,0.71,0.56,0.36,0.5
+shanghai.test_bn,0.71,0.53,0.48,0.51
+vegas.test,0.18,0.82,0.36,0.07
+vegas.test_bn,0.47,0.82,0.51,0.43
+paris.test,0.38,0.55,0.68,0.23
+paris.test_bn,0.44,0.57,0.68,0.33
+khartoum.test,0.38,0.54,0.26,0.71
+khartoum.test_bn,0.4,0.56,0.4,0.71
