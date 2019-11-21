@@ -42,17 +42,17 @@ class Spacenet(data.Dataset):
         img_name = os.path.join(self.img_root, 'TIFF-MUL/'+self.files[index] + '_MUL.tif')
         rasters = rasterio.open(img_name)
         for i in range(1, 9):
-            layer = rasters.read(i).astype('int32')
+            layer = rasters.read(i).astype('float64')
             layer = np.expand_dims(layer, -1)
             if i == 1:
                 img = layer
             else:
                 img = np.concatenate((img, layer), -1)
-        #target = cv2.imread(os.path.join(self.img_root, self.files[index] + '_GT.tif'))
+        img = cv2.resize(img, (400, 400))
+        # target = cv2.imread(os.path.join(self.img_root, self.files[index] + '_GT.tif'))
         # target = Image.open(os.path.join(self.img_root, 'Building_GT/'+self.files[index] + '_GT.tif'))
-        target_rasters = rasterio.open(os.path.join(self.img_root, 'Building_GT/'+self.files[index] + '_GT.tif'))
-        target = target_rasters.read(1).astype('bool')
-        target = target.astype('int8')
+        target = rasterio.open(os.path.join(self.img_root, 'Building_GT/'+self.files[index] + '_GT.tif')).read(1)
+        target = cv2.resize(target, (400, 400))
         sample = {'image': img, 'label': target}
         if self.split == 'train':
             return self.transform_tr(sample)
@@ -62,25 +62,30 @@ class Spacenet(data.Dataset):
             return self.transform_ts(sample)
 
     def transform_tr(self, sample):
-        composed_transforms = transforms.Compose([
-            #tr.RandomHorizontalFlip(),
-            tr.RandomScaleCrop(base_size=400, crop_size=400, fill=0),
-            #tr.RandomGaussianBlur(),
-            #tr.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),
-            tr.Normalize(),
-            tr.ToTensor()])
+        sample = tr.Normalize()(sample)
+        sample = tr.ToTensor()(sample)
+        # composed_transforms = transforms.Compose([
+        #     #tr.RandomHorizontalFlip(),
+        #     tr.RandomScaleCrop(base_size=400, crop_size=400, fill=0),
+        #     #tr.RandomGaussianBlur(),
+        #     #tr.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),
+        #     tr.Normalize(),
+        #     tr.ToTensor()])
 
-        return composed_transforms(sample)
+        # return composed_transforms(sample)
+        return sample
 
     def transform_val(self, sample):
+        sample = tr.Normalize()(sample)
+        sample = tr.ToTensor()(sample)
+        # composed_transforms = transforms.Compose([
+        #     tr.FixScaleCrop(400),
+        #     #tr.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),
+        #     tr.Normalize(),
+        #     tr.ToTensor()])
 
-        composed_transforms = transforms.Compose([
-            tr.FixScaleCrop(400),
-            #tr.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),
-            tr.Normalize(),
-            tr.ToTensor()])
-
-        return composed_transforms(sample)
+        # return composed_transforms(sample)
+        return sample
 
     def transform_ts(self, sample):
 

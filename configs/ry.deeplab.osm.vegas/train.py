@@ -76,6 +76,7 @@ class Trainer(object):
         num_img_tr = len(self.train_loader)
         for i, sample in enumerate(tbar):
             image, target = sample['image'], sample['label']
+            IPython.embed()
             if self.args.cuda:
                 image, target = image.cuda(), target.cuda()
             self.scheduler(self.optimizer, i, epoch, self.best_pred)
