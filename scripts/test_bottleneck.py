@@ -21,7 +21,7 @@ class Test:
         self.target.remove(config.dataset)
         # load source domain
         self.source_set = spacenet.Spacenet(city=config.dataset, split='test', img_root=config.img_root)
-        self.source_loader = DataLoader(self.source_set, batch_size=16, shuffle=False, num_workers=2)
+        self.source_loader = DataLoader(self.source_set, batch_size=8, shuffle=False, num_workers=2)
 
         self.save_path = save_path
         self.save_batch = save_batch
@@ -72,6 +72,8 @@ class Test:
                     output,_,_ = self.model(image)
 
         batch = self.save_batch
+        if batch < 0:
+            batch = len(dataloader)
         self.model.eval()
         self.evaluator.reset()
         tbar = tqdm(dataloader, desc='\r')
@@ -146,7 +148,7 @@ class Test:
             img = img[:,:,::-1] # change to BGR
             #from IPython import embed
             #embed()
-            if not if_original:
+            if if_original:
                 cv2.imwrite(os.path.join(save_path, str(batch_index) + str(i) + '_Original.jpg'), img)
             else:
                 cv2.imwrite(os.path.join(save_path, str(batch_index) + str(i) + '_Pred.jpg'), img)
@@ -179,7 +181,7 @@ if __name__ == "__main__":
             help='number of test images to save (n*batch_size)')
     parser.add_argument('--cuda', default=True,
             help='whether to use GPU')
-    parser.add_argument('--save_path', default='train_log/test_images/',
+    parser.add_argument('--save_path', default='train_log/models/test_images/',
             help='path to save images')
     args = parser.parse_args()
     test = Test(args.model, config, args.bn, args.save_path, args.save_batch, args.cuda)
