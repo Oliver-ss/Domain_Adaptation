@@ -3,6 +3,9 @@ import torch.nn as nn
 import numpy as np
 
 class InstanceLoss(object):
+    def __init__(self, cuda=True):
+        self.cuda = cuda
+
     def remove(self, tensor, idx):
         '''
         Remove certain batch from the tensor
@@ -15,19 +18,21 @@ class InstanceLoss(object):
             return tensor[:-1]
         else:
             return torch.cat((tensor[:idx], tensor[idx+1:]), dim=0)
-    def loss(self, u, v):
+    def __call__(self, u, v):
         n, c, h, w = u.size()
         norm_u = torch.sqrt(torch.mul(u, u).sum(dim=1).sum(dim=1).sum(dim=1) + 1e-30)
         norm_v = torch.sqrt(torch.mul(v, v).sum(dim=1).sum(dim=1).sum(dim=1) + 1e-30)
-        ans = torch.zeros(n,n-1)
+        ans = torch.zeros(n,2*n-1)
         for i in range(n):
-            from IPython import embed
-            embed()
             ans[i,:n] = u[i].unsqueeze(dim=0).repeat(n,1,1,1).mul(v).sum(dim=1).sum(dim=1).sum(dim=1).div(norm_v * norm_u[i])
-            ans[i,n:] = u[i].unsqueeze(dim=0).repeat(n-1,1,1).mul(self.remove(u,i)).sum(dim=1).sum(dim=1).sum(dim=1).div(self.remove(norm_u,i)*norm_u[i])
+            ans[i,n:] = u[i].unsqueeze(dim=0).repeat(n-1,1,1,1).mul(self.remove(u,i)).sum(dim=1).sum(dim=1).sum(dim=1).div(self.remove(norm_u,i)*norm_u[i])
         s = torch.exp(ans).sum(dim=1)
         ans = torch.exp(ans[:,0]).div(s)
-        return -torch.log(ans).sum()
+        if self.cuda:
+            return -torch.log(ans).sum().cuda()
+        else:
+            return -torch.log(ans).sum()
+
 
 class BottleneckLoss(object):
     def loss(self, source, target):
@@ -109,13 +114,16 @@ class SegmentationLosses(object):
 
 
 if __name__ == "__main__":
-    loss = SegmentationLosses(cuda=True)
-    a = torch.rand(1, 3, 7, 7).cuda()
-    b = torch.rand(1, 7, 7).cuda()
-    print(loss.CrossEntropyLoss(a, b).item())
-    print(loss.FocalLoss(a, b, gamma=0, alpha=None).item())
-    print(loss.FocalLoss(a, b, gamma=2, alpha=0.5).item())
-
+    #loss = SegmentationLosses(cuda=True)
+    #a = torch.rand(1, 3, 7, 7).cuda()
+    #b = torch.rand(1, 7, 7).cuda()
+    #print(loss.CrossEntropyLoss(a, b).item())
+    #print(loss.FocalLoss(a, b, gamma=0, alpha=None).item())
+    #print(loss.FocalLoss(a, b, gamma=2, alpha=0.5).item())
+    ins = InstanceLoss()
+    u = torch.ones(8,2,10,10)
+    v = torch.ones(8,2,10,10)*2
+    print(ins.loss(u,v))
 
 
 
