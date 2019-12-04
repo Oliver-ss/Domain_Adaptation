@@ -69,7 +69,7 @@ class Test:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('model', default='train_log/models/epoch36.pth')
+    parser.add_argument('model', default='train_log/models/epoch320.pth')
     parser.add_argument('--source', default='Vegas')
     parser.add_argument('--target', default= ['Shanghai', 'Paris', 'Khartoum'])
     parser.add_argument('--cuda', default=True)

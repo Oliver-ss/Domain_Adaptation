@@ -5,4 +5,7 @@ watch:
 	python3 ../../scripts/show_table.py
 
 test:
-	python3 test.py
+	python3 ../../scripts/base_test.py ${MODEL} ${BN} ${SAVE}
+MODEL = 'train_log/models/epoch320.pth'
+BN = True
+SAVE = 0

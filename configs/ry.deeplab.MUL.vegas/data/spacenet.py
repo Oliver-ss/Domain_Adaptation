@@ -18,7 +18,7 @@ from PIL import Image
 class Spacenet(data.Dataset):
     NUM_CLASSES = 2
 
-    def __init__(self, city='Shanghai', split='train', img_root='/usr/xtmp/satellite/spacenet_new/AOI_2_Vegas/'):
+    def __init__(self, city='Vegas', split='train', img_root='/usr/xtmp/satellite/spacenet_new/data/'):
         self.img_root = img_root
         self.name_root = '../../dataset/spacenet/domains/' + city
         with open(os.path.join(self.name_root, split + '.json')) as f:
@@ -39,7 +39,7 @@ class Spacenet(data.Dataset):
     def __getitem__(self, index):
         #img = cv2.imread(os.path.join(self.img_root, 'TIFF-MUL'+self.files[index] + '_MUL.tif'))
         #img = Image.open(os.path.join(self.img_root, 'TIFF-MUL/'+self.files[index] + '_MUL.tif'))
-        img_name = os.path.join(self.img_root, 'TIFF-MUL/'+self.files[index] + '_MUL.tif')
+        img_name = os.path.join(self.img_root, self.files[index] + '_MUL.tif')
         rasters = rasterio.open(img_name)
         for i in range(1, 9):
             layer = rasters.read(i).astype('float64')
@@ -51,7 +51,7 @@ class Spacenet(data.Dataset):
         img = cv2.resize(img, (400, 400))
         # target = cv2.imread(os.path.join(self.img_root, self.files[index] + '_GT.tif'))
         # target = Image.open(os.path.join(self.img_root, 'Building_GT/'+self.files[index] + '_GT.tif'))
-        target = rasterio.open(os.path.join(self.img_root, 'Building_GT/'+self.files[index] + '_GT.tif')).read(1)
+        target = rasterio.open(os.path.join(self.img_root, self.files[index] + '_GT.tif')).read(1)
         target = cv2.resize(target, (400, 400))
         sample = {'image': img, 'label': target}
         if self.split == 'train':
@@ -88,14 +88,16 @@ class Spacenet(data.Dataset):
         return sample
 
     def transform_ts(self, sample):
+        sample = tr.Normalize()(sample)
+        sample = tr.ToTensor()(sample)
+        # composed_transforms = transforms.Compose([
+        #     tr.FixedResize(size=400),
+        #     #tr.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),
+        #     tr.Normalize(),
+        #     tr.ToTensor()])
 
-        composed_transforms = transforms.Compose([
-            tr.FixedResize(size=400),
-            #tr.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),
-            tr.Normalize(),
-            tr.ToTensor()])
-
-        return composed_transforms(sample)
+        # return composed_transforms(sample)
+        return sample
 
 if __name__ == "__main__":
     from torch.utils.data import DataLoader
