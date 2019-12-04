@@ -1,6 +1,3 @@
-exp,Shanghai,boost_Shanghai,Vegas,boost_Vegas,Paris,boost_Paris,Khartoum,boost_Khartoum,avg_boost
-xh.deeplab.mobilenet.paris,0.12,0,0.47,0,0.65,0,0.09,0,0.0
-xh.deeplab.mobilenet.paris.test_bn,0.39,0,0.55,0,0.65,0,0.23,0,0.0
-xh.deeplab.mobilenet.paris.ss_similarity.finetune.nan_1.beta_1,0.18,-0.54,0.62,0.13,0.71,0.09,0.08,-0.65,-0.24
-ry.deeplab.coral.bn2.paris,0.14,-0.64,0.11,-0.8,0.65,0.0,0.05,-0.78,-0.55
-ry.deeplab.coral.paris,0.1,-0.74,0.04,-0.93,0.65,0.0,0.06,-0.74,-0.6
+exp(%),Shanghai,boost_Shanghai,Vegas,boost_Vegas,Paris,boost_Paris,Khartoum,boost_Khartoum,avg_boost
+xh.deeplab.mobilenet.paris.n,32.94,0,57.48,0,66.76,0,26.41,0,0.0
+xh.deeplab.mobilenet.paris.n.test_bn,40.5,0,55.82,0,66.76,0,29.66,0,0.0
