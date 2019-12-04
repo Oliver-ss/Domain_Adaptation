@@ -14,3 +14,9 @@ To push the result to csv, run ```make push_result```
   * default: NAME = test.json;   BASELINE = False
 
 For the details, please directly check the python scripts. 
+
+------
+
+Mobilenet baseline is updated in branch **xh**. 
+
+The corresponding best models are in **configs/mobilenet.baseline/&lt;exp name&gt;/train_log/best.pth** 
