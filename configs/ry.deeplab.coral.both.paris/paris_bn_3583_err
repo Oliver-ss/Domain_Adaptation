@@ -1,15 +1,0 @@
-:   0%|          | 0/8 [00:00<?, ?it/s]:  12%|█▎        | 1/8 [00:00<00:03,  2.06it/s]:  25%|██▌       | 2/8 [00:00<00:02,  2.47it/s]:  38%|███▊      | 3/8 [00:00<00:01,  2.76it/s]:  50%|█████     | 4/8 [00:01<00:01,  3.10it/s]:  62%|██████▎   | 5/8 [00:01<00:00,  3.27it/s]:  75%|███████▌  | 6/8 [00:01<00:00,  3.46it/s]:  88%|████████▊ | 7/8 [00:01<00:00,  3.68it/s]: 100%|██████████| 8/8 [00:02<00:00,  3.74it/s]: 100%|██████████| 8/8 [00:02<00:00,  3.52it/s]
-Traceback (most recent call last):
-  File "/home/home1/rh254/Domain_Adaptation/configs/ry.deeplab.coral.paris/coral_test.py", line 317, in <module>
-    test.test_neck_coral()
-  File "/home/home1/rh254/Domain_Adaptation/configs/ry.deeplab.coral.paris/coral_test.py", line 251, in test_neck_coral
-    A, I, Im = self.neck_coral_performance(torch.split(src_target, 100, dim=0), torch.split(src_neck, 100, dim=0), torch.split(src_low_feat,100, dim=0), src_size, self.source_loader, None, self.config.dataset)
-  File "/home/home1/rh254/Domain_Adaptation/configs/ry.deeplab.coral.paris/coral_test.py", line 235, in neck_coral_performance
-    output = self.model.decode(neck_feat, low_feat, size)
-  File "/home/home1/rh254/Domain_Adaptation/configs/ry.deeplab.coral.paris/model/deeplab.py", line 45, in decode
-    x = self.decoder(neck, low_level_feat)
-  File "/home/home1/rh254/.local/lib/python3.6/site-packages/torch/nn/modules/module.py", line 547, in __call__
-    result = self.forward(*input, **kwargs)
-  File "/home/home1/rh254/Domain_Adaptation/configs/ry.deeplab.coral.paris/model/decoder.py", line 40, in forward
-    x = torch.cat((x, low_level_feat), dim=1)
-RuntimeError: CUDA out of memory. Tried to allocate 1.13 GiB (GPU 0; 11.91 GiB total capacity; 1.64 GiB already allocated; 589.31 MiB free; 205.25 MiB cached)
