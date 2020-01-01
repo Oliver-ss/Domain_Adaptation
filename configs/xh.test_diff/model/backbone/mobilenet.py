@@ -111,23 +111,14 @@ class MobileNetV2(nn.Module):
 
         if pretrained:
             self._load_pretrained_model()
-        
-#         self.f0 = self.features[0]
-#         self.f1 = self.features[1]
-#         self.f2 = self.features[2]
-#         self.f3 = self.features[3]
+
         self.low_level_features = self.features[0:4]
         self.high_level_features = self.features[4:]
 
-    def forward(self, x):        
-        f0 = self.low_level_features[0](x)
-        f1 = self.low_level_features[1](f0)
-        f2 = self.low_level_features[2](f1)
-        low_level_feat = self.low_level_features[3](f2)
-#         low_level_feat = self.low_level_features(x)
+    def forward(self, x):
+        low_level_feat = self.low_level_features(x)
         x = self.high_level_features(low_level_feat)
-#         print('f0.shape:', f0.shape)
-        return x, f0, f1, f2, low_level_feat
+        return x, low_level_feat
 
     def _load_pretrained_model(self):
         pretrain_dict = model_zoo.load_url('http://jeff95.me/models/mobilenet_v2-6a65762b.pth')

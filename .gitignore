@@ -2,7 +2,6 @@
 *.jpeg
 *.tif
 ._*
-*.ipynb
 checkpoints/
 __pycache__/
 __pycache__
