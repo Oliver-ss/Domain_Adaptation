@@ -1,0 +1,4 @@
+#!/bin/bash
+#SBATCH --partition=compsci
+python3 extract_nn_source.py
+
