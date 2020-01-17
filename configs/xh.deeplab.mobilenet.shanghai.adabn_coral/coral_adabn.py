@@ -20,6 +20,7 @@ i = 0
 covs = torch.load('/home/home1/xw176/work/Domain_Adaptation/configs/xh.gather_statistics/sta/' + 'khartoum' + '_all_layer_cov.pth')
 
 def coral(module, input, output):
+    # do coral after conv i
     global i, covs
     print(i)
     b, c, h, w = output.shape
@@ -49,6 +50,7 @@ def coral(module, input, output):
 
 
 def train(t_domain, model_path, save_path):
+    # adabn with coral on layer 1
     train_set = spacenet.Spacenet(city=t_domain, split='train', img_root=config.img_root)
     loader = DataLoader(train_set, batch_size=config.batch_size, shuffle=False,
                               num_workers=config.train_num_workers, drop_last=True)
@@ -61,6 +63,8 @@ def train(t_domain, model_path, save_path):
     model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
 
     coral_layer = 0
+
+    # coral on layer 1
     for h in model.modules():
         if isinstance(h, nn.Conv2d):
             h.register_forward_hook(coral)
@@ -68,6 +72,7 @@ def train(t_domain, model_path, save_path):
             if coral_layer == 1:
                 break
 
+    #adabn
     model.train()
     for num, sample in enumerate(loader):
         print(num*16)
@@ -108,7 +113,7 @@ def test(model, t_domain):
 
 if __name__ == '__main__':
     s_domain = "Khartoum"
-    t_domain = 'Shanghai'
+    t_domain = 'Paris'
     model_path = '/home/home1/xw176/work/Domain_Adaptation/pretrained_model/' + s_domain.lower() + '.pth'
     save_path = '/home/home1/xw176/work/Domain_Adaptation/configs/xh.deeplab.mobilenet.shanghai.adabn_coral/coral_adabn_model/s_' + s_domain + '_t_' + t_domain + '.pth'
     model = train(t_domain, model_path, save_path)
